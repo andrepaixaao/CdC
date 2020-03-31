@@ -11,7 +11,7 @@ Inicialmente, o utilizador poderá escolher um sintoma predominante predefinido 
 - O utilizador poderá imprimir ou guardar como pdf, as recomendações ou produtos de apoios que escolheu. 
  
 ## Calendário: 
-- Fase 1 (Meia semana) 
+- Fase 1 (Meia semana)
 Elaboração da proposta  
 - Fase 2 (Meia semana) 
 Criação dos mockups 
