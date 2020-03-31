@@ -5,7 +5,9 @@ Inicialmente, o utilizador poderá escolher um sintoma predominante predefinido 
  
  
 ## Cenário Secundário :  
--  A aplicação terá fornecedores dos produtos que irão ser recomendados e poderá obter o trajeto para o estabelecimento do fornecedor.  •    O especialista/avaliador poderá inserir novos dados(Sintomas, Listas de Procedimentos Operacionais Padrão, Tarefas) . •    O utilizador poderá imprimir ou guardar como pdf, as recomendações ou produtos de apoios que escolheu. 
+-  A aplicação terá fornecedores dos produtos que irão ser recomendados e poderá obter o trajeto para o estabelecimento do fornecedor. 
+- O especialista/avaliador poderá inserir novos dados(Sintomas, Listas de Procedimentos Operacionais Padrão, Tarefas) .
+- O utilizador poderá imprimir ou guardar como pdf, as recomendações ou produtos de apoios que escolheu. 
  
 ## Calendário: 
 - Fase 1 (Meia semana) 
