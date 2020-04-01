@@ -6,7 +6,7 @@
     z-index: 1;
     top: 0;
     left: 0;
-    background-color:#757EF9;
+    background-color:#87afd3;
     overflow-x: hidden;
 }
 
@@ -30,13 +30,13 @@ font-size:12px;
 }
 
 .navbar a.navactive {
-    background-color: #454FD0;
+    background-color: #647E9D;
   }
 
 
 .container
 {
-    background-color:#ccc;
+    background-color:#E8EAEC;
     position:fixed;
     width:100%;
     height:100%;
@@ -65,7 +65,7 @@ font-size:12px;
     margin-top:1%;
     margin-left:4%;
     font-family:"Arial"; 
-    font-size:26px;
+    font-size:18px;
     display:flex;
     position:relative;
     font-weight: bold;
@@ -81,8 +81,179 @@ font-size:12px;
 .Patologia select{
     height:28px;
     width:70%;
-    font-size:23px;
-    background-color:#757EF9;
+    font-size:16px;
+    background-color:#87afd3;
     margin-left:2.5%;
+    font-weight: normal;
 
+}
+
+
+.tabelaPatologia table
+{
+    width: 80%;
+    margin-left:4%;
+    margin-right:4%;
+    margin-top:1%;
+    font-family: Arial;
+    font-size: 14px;
+    border-spacing: 0;
+
+
+}
+
+.tabelaPatologia table #Sintomas
+{
+    width: 30%;
+}
+
+.tabelaPatologia table #Codigo
+{
+    width: 10%;
+    
+}
+
+.tabelaPatologia table th{
+   padding-top: 3px;
+   padding-bottom: 3px;
+    text-align: left;
+    color: white;
+    background-color: darkgrey;
+    border: 1px solid black;
+    text-align:center;
+    font-weight: normal;
+}
+
+.tabelaPatologia table td{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    color: black;
+    background-color: white;
+    border:1px solid black;
+ 
+}
+
+.dadosdem{
+    margin-top:1%;
+    margin-left:4%;
+    font-family:"Arial"; 
+    font-size:18px;
+    font-weight: bold;
+   
+}
+
+#dados{
+    margin-top:1%;
+    font-size:14px;
+    width: 85%;
+    font-family:"Arial"; 
+    text-align:left;
+    font-weight: normal;
+    
+    
+}
+
+#dados input
+{
+    background-color:#87afd3;
+    font-size:14px;
+    width:95%;
+    font-family:"Arial"; 
+
+}
+
+#dados select
+{
+    width:95%;
+    font-family:"Arial"; 
+
+    background-color:#87afd3;
+    font-size:14px;
+    color:white;
+    font-weight: normal;
+}
+
+#DataCampo
+{
+    width:15%;
+    font-weight: normal;
+}
+
+#caixaTexto
+{
+    width:35%;
+    font-weight: normal;
+}
+
+#generoCampo{
+    width:10%;
+    font-weight: normal;
+}
+
+#generoCombo
+{
+    width:35%;
+    font-weight: normal;
+}
+#espaco
+{
+    width:5%;
+    font-weight: normal;
+}
+
+.PCSintomas
+{
+    
+    margin-top:1%;
+    margin-left:4%;
+    font-family:"Arial"; 
+    font-size:18px;
+    font-weight: bold;
+    
+   
+}
+
+.PCSintomas input{
+    float:right;
+    margin-right:17%;
+    font-family:"Arial"; 
+    font-size:18px;
+    background-color:#3C61A5;
+    color:white
+}
+
+.PCTarefas
+{
+    
+    margin-top:1%;
+    margin-left:4%;
+    font-family:"Arial"; 
+    font-size:18px;
+    font-weight: bold;
+    
+   
+}
+
+.PCTarefas input{
+    float:right;
+    margin-right:17%;
+    font-family:"Arial"; 
+    font-size:18px;
+    background-color:#3C61A5;
+    color:white
+}
+
+.SintomasEscolhidos
+{
+    width:83%;
+    height:5%;
+    border-bottom: 1px solid blue;
+}
+
+.TarefasEscolhidos
+{
+    width:83%;
+    height:5%;
+    border-bottom: 1px solid blue;
 }

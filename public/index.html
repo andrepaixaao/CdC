@@ -23,13 +23,102 @@
         <div class="Patologia">
           Patologia
            <select id="PatologiaId">
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="opel">Opel</option>
-            <option value="audi">Audi</option>
+            <option value="volvo">LER( Lesão Esforço Repetitivo )</opti<on>
+            
           </select>
           <img src="images/adicionar.png">
         </div>
+        <div class="tabelaPatologia">
+            <table id="patEscolhidas">
+                <tr>
+                  <th id="Sintomas">Patologia/Sintoma Predominante</th>
+                  <th id="Descricao">Descrição </th>
+                  <th id="Codigo">Código</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                     <td></td>
+                </tr>
+                
+            </table>
+        </div>
+        <div class="dadosdem">
+            Dados Demográficos
+            <table id="dados">
+                <tr>
+                    <th id="DataCampo"> Data de Nascimento</th>
+                    <th id="caixaTexto"> <input type="text" id="data" ></th>
+                    <th id="espaco"></th>
+                    <th id="generoCampo">Género  </th>
+                    <th id="generoCombo"> <select id="PatologiaId">
+                        <option value="volvo">Masculino</option>
+                        <option value="saab">Feminino</option>
+                      </select></th>
+                  </tr>
+                  <tr>
+                    <td>Habilitações</td>
+                    <td><select id="Habilitacoes">
+                        <option value="Basico">Ensino Básico</option>
+                        <option value="Secundario">Ensino Secundário</option>
+                        <option value="Licenciatura">Licenciatura</option>
+                        <option value="Mestrado">Mestrado</option>
+                        <option value="Doutoramento">Doutoramento</option>
+                      </select></td>
+                      <td></td>
+                    <td>Localidade</td>
+                    <td><select id="Localidade">
+                        <option value="Porto">Porto</option>
+                        <option value="Lisboa">Lisboa</option>
+                        <option value="Guarda">Guarda</option>
+                        <option value="Faro">Faro</option>
+                        <option value="Viseu">Viseu</option>
+                        <option value="Braga">Braga</option>
+                      </select></td>
+                      <tr></tr>
+                    <td>Setor Atividade</td>
+                    <td><select id="setorAtividade">
+                        <option value="DesignPublicidade">Design & Publicidade</option>
+                        <option value="Marketing">Marketing</option>
+                      </select></td>
+                      <td></td>
+                    <td>Função</td>
+                    <td><select id="Funcao">
+                        <option value="DGrafico">Designer Gráfico</option>
+                    </select></td>
+                </tr>
+               </tr>
+            </table>
+              
+
+           
+
+
+        </div>
+        <div class="PCSintomas">
+            Palavras-Chave Sintomas
+            <input type="button" value="Lista Sintomas">
+            <div class="SintomasEscolhidos">
+                <br>
+                <br>
+            </div>
+        </div>
+
+        <div class="PCTarefas">
+            Palavras-Chave Tarefas
+            <input type="button" value="Lista Tarefas">
+            <div class="TarefasEscolhidos">
+                <br>
+                <br>
+            </div>
+        </div>
+
+
 </div>
 </body>
 </html>
