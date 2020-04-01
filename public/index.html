@@ -5,16 +5,31 @@
     <link rel="stylesheet" href="stylesheets/style.css">
 </head>
 <body>
-    <nav class="navbar" >
-        <a href="index.html"><img src="images/home.png">Página Inicial</a>
+<div class="container">
+    <div class="navbar" >
+        <a class="navactive" href="index.html"><img src="images/home.png">Página Inicial</a>
         <a href="candidatura.html"><img src="images/candidatura.png">Candidatura Membro</a>
         <a href="prescritores.html"><img src="images/prescritores.png">Prescritores</a>
         <a href="associacoes.html"><img src="images/associacoes.png">Associações</a>
         <a href="fornecedores.html"><img src="images/fornecedores.png">Fornecedores</a>
         <a href="configurarpop.html"><img src="images/configurarpop.png">Configurar POP</a>
         <a href="configurarsistema.html"><img src="images/configurarsis.png">Configurar Sistema</a>
-      </nav>
-    
- 
- </body>
+    </div>
+    <div class=content>
+        <div class="nota">
+             Na Página Inicial faz-se um diagnóstico das patologias, sintomas, tarefas e determina-se posteriormente os procedimentos para o utilizador usufruir.
+            </div>
+
+        <div class="Patologia">
+          Patologia
+           <select id="PatologiaId">
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="opel">Opel</option>
+            <option value="audi">Audi</option>
+          </select>
+          <img src="images/adicionar.png">
+        </div>
+</div>
+</body>
 </html>
