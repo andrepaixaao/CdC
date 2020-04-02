@@ -7,7 +7,7 @@
     top: 0;
     left: 0;
     background-color:#87afd3;
-    overflow-x: hidden;
+
 }
 
 .navbar a{
@@ -59,6 +59,12 @@ font-size:12px;
     text-align:center;
 
 }
+.tabelaPatologia
+{overflow-y:auto;
+    height:15vh;
+    margin-left:0.5%;
+    width:83.5%;
+}
 
 .Patologia
 {
@@ -66,11 +72,9 @@ font-size:12px;
     margin-left:4%;
     font-family:"Arial"; 
     font-size:18px;
-    display:flex;
-    position:relative;
-    font-weight: bold;
+    font-weight: bold;  
+   
 
-    
 }
 
 .Patologia img{
@@ -91,14 +95,12 @@ font-size:12px;
 
 .tabelaPatologia table
 {
-    width: 80%;
+ 
     margin-left:4%;
-    margin-right:4%;
     margin-top:0.5%;
     font-family: Arial;
     font-size: 14px;
     border-spacing: 0;
-
 
 }
 
@@ -107,6 +109,10 @@ font-size:12px;
     width: 30%;
 }
 
+.tabelaPatologia img
+{
+    width:20%;
+}
 .tabelaPatologia table #Codigo
 {
     width: 10%;
@@ -159,7 +165,8 @@ font-size:12px;
     background-color:#87afd3;
     font-size:14px;
     width:95%;
-    font-family:"Arial"; 
+    font-family:"Arial";
+
 
 }
 
@@ -218,9 +225,11 @@ font-size:12px;
     float:right;
     margin-right:17%;
     font-family:"Arial"; 
-    font-size:18px;
+    font-size:14px;
     background-color:#3C61A5;
-    color:white
+    color:white;
+    width:200px;
+    height:26px;
 }
 
 .PCTarefas
@@ -239,23 +248,23 @@ font-size:12px;
     float:right;
     margin-right:17%;
     font-family:"Arial"; 
-    font-size:18px;
+    font-size:14px;
     background-color:#3C61A5;
-    color:white
+    color:white;
+    width:200px;
+    height:26px;
 }
 
 .SintomasEscolhidos
 {
-    width:83%;
+    width:100%;
     height:5%;
-    border-bottom: 2px solid #3C61A5;
 }
 
 .TarefasEscolhidos
 {
-    width:83%;
+    width:100%;
     height:5%;
-    border-bottom: 2px solid #3C61A5;
 }
 
 
@@ -268,7 +277,7 @@ font-size:12px;
     font-size:18px;
     font-weight: bold;
     height:26vh;
-    width:83%;
+    width:82%;
 }
 .POP table
 {
@@ -330,32 +339,134 @@ font-size:12px;
 .POP input[type='checkbox']
 {
     text-align:center;
-    width:50%;
-    margin-top:10%;
+    width:30%;
+    height:12px;
 }
 
 .POP input{
     float:right;
-    margin-right:4%;
+    margin-right:3.2%;
     font-family:"Arial"; 
-    font-size:18px;
+    font-size:14px;
     background-color:#3C61A5;
-    color:white
+    color:white;
+    width:200px;
+    height:26px;
+
 }
 .tabelaPOP
 {
-   
     overflow-y: scroll;
-    height:26vh;
+    height:24vh;
     width:97%;
 }
 
 .determinarPOP input
 {
     float:right;
-    margin-right:16.5%;
+    margin-right:16.4%;
     font-family:"Arial"; 
-    font-size:18px;
+    font-size:14px;
     background-color:#3C61A5;
-    color:white
+    color:white;
+    width:200px;
+    height:26px;
+   
+}
+
+.grau
+{
+    margin-top:0.5%;
+    float:right;
+    margin-right:10%;
+    width:200px;
+    background-color: white;
+    text-align:center;
+    border:1px solid black;
+
+}
+
+.TarefasEscolhidos input
+{
+   
+    width:83%;
+    height:30px;
+    background-color: #E8EAEC;
+    border-bottom: 2px solid #3C61A5;
+    border-top: 0px;
+    border-left:0px;
+    border-right:0px;
+    color:black;
+
+}
+
+.SintomasEscolhidos input
+{
+   
+    width:83%;
+    height:30px;
+    background-color: #E8EAEC;
+    color:black;
+    border-bottom: 2px solid #3C61A5;
+    border-top: 0px;
+    border-left:0px;
+    border-right:0px;
+
+}
+
+.VerResultados
+{
+    margin-top:1%;
+}
+
+.ui-menu
+{
+    font-family: Arial;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    float: left;
+    display: none;
+    min-width: 160px;   
+    padding: 4px 0;
+    margin: 0 0 10px 25px;
+    list-style: none;
+    background-color: darkgrey;
+    border-color: white;
+    color:white;    
+    border-style: solid;
+    border-width: 1px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+    *border-right-width: 2px;
+    *border-bottom-width: 2px;
+}
+
+.ui-menu-item > a.ui-corner-all {
+    display: block;
+    padding: 3px 15px;
+    clear: both;
+    font-weight: normal;
+    line-height: 18px;
+    color: #555555;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.ui-state-hover, .ui-state-active {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #0088cc;
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    background-image: none;
 }

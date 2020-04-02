@@ -2,8 +2,12 @@
 <html lang="en">
 <head>
     <title>Diagnóstico Online</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" href="stylesheets/style.css">
     <script src="javascripts/index.js"></script>
+ 
 
 </head>
 <body>
@@ -28,28 +32,20 @@
             <option value="volvo">LER( Lesão Esforço Repetitivo )</opti<on>
             
           </select>
-          <img src="images/adicionar.png">
+          <img onClick="addLinha()" src="images/adicionar.png">
         </div>
-        <div class="tabelaPatologia">
-            <table id="patEscolhidas">
+        
+        <div class="tabelaPatologia" >
+            <table class="patTabela"  id="patEscolhidas">
                 <tr>
                   <th id="Sintomas">Patologia/Sintoma Predominante</th>
                   <th id="Descricao">Descrição </th>
-                  <th id="Codigo">Código</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                     <td></td>
-                </tr>
-                
+                  <th id="Codigo"><img src="images/portugal.png"></th>
+                </tr> 
             </table>
-        </div>
+        </div> 
+        
+    
         <div class="dadosdem">
             Dados Demográficos
             <table id="dados">
@@ -106,8 +102,7 @@
             Palavras-Chave Sintomas
             <input type="button" value="Lista Sintomas">
             <div class="SintomasEscolhidos">
-                <br>
-                <br>
+                <input id="sintomas">
             </div>
         </div>
 
@@ -115,16 +110,19 @@
             Palavras-Chave Tarefas
             <input type="button" value="Lista Tarefas">
             <div class="TarefasEscolhidos">
-                <br>
-                <br>
+                <input id="tarefas">
             </div>
         </div>
         <div class="determinarPOP">
             <input type="button" onClick="determinarPOP()" value="Determinar POP">
         </div>
+
         <div class="POP" id="POP">
             
         Lista de Procedimentos Operacionais Padrão    
+        <div class="grau">
+           <b> Grau: 50-95% Grave
+        </div>
             <div class="tabelaPOP">
 
                     <table id="ListaPOP">
@@ -217,7 +215,7 @@
 
               </table>
             </div>
-            <input type="button" class="VerResultados" value="Ver Resultados">
+            <input type="button" class="VerResultados" value="Ver Resultados" onClick="verResultados()">
 
            </div>
         </div>
