@@ -62,7 +62,7 @@ font-size:12px;
 
 .Patologia
 {
-    margin-top:1%;
+    margin-top:0.5%;
     margin-left:4%;
     font-family:"Arial"; 
     font-size:18px;
@@ -94,7 +94,7 @@ font-size:12px;
     width: 80%;
     margin-left:4%;
     margin-right:4%;
-    margin-top:1%;
+    margin-top:0.5%;
     font-family: Arial;
     font-size: 14px;
     border-spacing: 0;
@@ -135,7 +135,7 @@ font-size:12px;
 }
 
 .dadosdem{
-    margin-top:1%;
+    margin-top:0.5%;
     margin-left:4%;
     font-family:"Arial"; 
     font-size:18px;
@@ -144,7 +144,7 @@ font-size:12px;
 }
 
 #dados{
-    margin-top:1%;
+    margin-top:0.5%;
     font-size:14px;
     width: 85%;
     font-family:"Arial"; 
@@ -205,7 +205,7 @@ font-size:12px;
 .PCSintomas
 {
     
-    margin-top:1%;
+    margin-top:0.5%;
     margin-left:4%;
     font-family:"Arial"; 
     font-size:18px;
@@ -226,7 +226,7 @@ font-size:12px;
 .PCTarefas
 {
     
-    margin-top:1%;
+    margin-top:0.5%;
     margin-left:4%;
     font-family:"Arial"; 
     font-size:18px;
@@ -248,12 +248,114 @@ font-size:12px;
 {
     width:83%;
     height:5%;
-    border-bottom: 1px solid blue;
+    border-bottom: 2px solid #3C61A5;
 }
 
 .TarefasEscolhidos
 {
     width:83%;
     height:5%;
-    border-bottom: 1px solid blue;
+    border-bottom: 2px solid #3C61A5;
+}
+
+
+.POP
+{
+    display:none;
+    margin-top:0.5%;
+    margin-left:4%;
+    font-family:"Arial"; 
+    font-size:18px;
+    font-weight: bold;
+    height:26vh;
+    width:83%;
+}
+.POP table
+{
+    width: 100%;
+    margin-right:4%;
+    margin-top:0.5%;
+    font-family: Arial;
+    font-size: 14px;
+    border-spacing: 0;
+   
+}
+
+.POP table th{
+   padding-top: 3px;
+   padding-bottom: 3px;
+    text-align: left;
+    color: white;
+    background-color: darkgrey;
+    border: 1px solid black;
+    text-align:center;
+    font-weight: normal;
+}
+
+.POP table td{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: left;
+    color: black;
+    background-color: white;
+    border:1px solid black;
+ 
+}
+
+.POP table #Conformidade
+{
+    width:17%;
+}
+
+.POP table #POPTable
+{
+    width:45%;
+}
+
+.POP table #Colmatacao
+{
+    width:17%;
+}
+
+.POP table #Custo
+{
+    width:15%;
+}
+
+.POP table #Scroll
+{
+    width:5%;
+}
+
+.POP input[type='checkbox']
+{
+    text-align:center;
+    width:50%;
+    margin-top:10%;
+}
+
+.POP input{
+    float:right;
+    margin-right:4%;
+    font-family:"Arial"; 
+    font-size:18px;
+    background-color:#3C61A5;
+    color:white
+}
+.tabelaPOP
+{
+   
+    overflow-y: scroll;
+    height:26vh;
+    width:97%;
+}
+
+.determinarPOP input
+{
+    float:right;
+    margin-right:16.5%;
+    font-family:"Arial"; 
+    font-size:18px;
+    background-color:#3C61A5;
+    color:white
 }
