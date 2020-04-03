@@ -106,6 +106,31 @@ $(document).ready(function(){
           return false;
         }
       });
+
+      $( "#ltarefas" ).autocomplete({
+        minLength: 0,
+        source: function( request, response ) {
+          // delegate back to autocomplete, but extract the last term
+          response( $.ui.autocomplete.filter(
+            availableTarefas, extractLast( request.term ) ) );
+        },
+        focus: function() {
+          // prevent value inserted on focus
+          return false;
+        },
+        select: function( event, ui ) {
+          var terms = split( this.value );
+          // remove the current input
+          terms.pop();
+          // add the selected item
+          terms.push( ui.item.value );
+          // add placeholder to get the comma-and-space at the end
+          terms.push( "" );
+          var tarefas=document.getElementById('tarefas');
+          tarefas.value =tarefas.value +terms.join( ", " );
+          return false;
+        }
+      });
   
   })
   function determinarPOP()
@@ -130,7 +155,12 @@ $(document).ready(function(){
   {
     $("#lsintomas").autocomplete( "search", "" );
 
-    console.log("boas");
-    
-  
+
   }
+
+  function listarTarefas()
+  {
+    $("#ltarefas").autocomplete( "search", "" );
+
+  }
+

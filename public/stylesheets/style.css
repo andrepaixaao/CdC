@@ -61,8 +61,8 @@ font-size:12px;
 }
 .tabelaPatologia
 {
-    overflow-y:auto;
-    height:15vh;
+    overflow-y: scroll;
+    max-height:120px;
         width:83.5%;
 }
 
@@ -275,7 +275,6 @@ font-size:12px;
     font-family:"Arial"; 
     font-size:18px;
     font-weight: bold;
-    height:26vh;
     width:82%;
 }
 .POP table
@@ -355,7 +354,7 @@ font-size:12px;
 .tabelaPOP
 {
     overflow-y: scroll;
-    height:24vh;
+    max-height:200px;
     width:97%;
 }
 
