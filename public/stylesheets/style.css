@@ -34,20 +34,16 @@ font-size:12px;
   }
 
 
-body
-{
-    overflow:scroll;
-}
+  body
+  {
+    background-color:#E8EAEC;
+
+  }
 .container
 {
-    background-color:#E8EAEC;
-    position:fixed;
     width:100%;
     min-height:100%;
     top:0px;
-    overflow-y:scroll;
-
-        
 }
 .content
 {
