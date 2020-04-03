@@ -34,13 +34,18 @@ font-size:12px;
   }
 
 
+body
+{
+    overflow:scroll;
+}
 .container
 {
     background-color:#E8EAEC;
     position:fixed;
     width:100%;
-    height:100%;
+    min-height:100%;
     top:0px;
+    overflow-y:scroll;
 
         
 }
@@ -55,20 +60,19 @@ font-size:12px;
     background-color:black;
     color:white;
     font-family:"Arial";    
-    min-width:100vw;
     text-align:center;
 
 }
 .tabelaPatologia
-{overflow-y:auto;
+{
+    overflow-y:auto;
     height:15vh;
-    margin-left:0.5%;
-    width:83.5%;
+        width:83.5%;
 }
 
 .Patologia
 {
-    margin-top:0.5%;
+    margin-top:2%;
     margin-left:4%;
     font-family:"Arial"; 
     font-size:18px;
@@ -97,7 +101,7 @@ font-size:12px;
 {
  
     margin-left:4%;
-    margin-top:0.5%;
+    margin-top:1%;
     font-family: Arial;
     font-size: 14px;
     border-spacing: 0;
@@ -141,7 +145,7 @@ font-size:12px;
 }
 
 .dadosdem{
-    margin-top:0.5%;
+    margin-top:2%;
     margin-left:4%;
     font-family:"Arial"; 
     font-size:18px;
@@ -150,7 +154,6 @@ font-size:12px;
 }
 
 #dados{
-    margin-top:0.5%;
     font-size:14px;
     width: 85%;
     font-family:"Arial"; 
@@ -212,7 +215,7 @@ font-size:12px;
 .PCSintomas
 {
     
-    margin-top:0.5%;
+    margin-top:2%;
     margin-left:4%;
     font-family:"Arial"; 
     font-size:18px;
@@ -235,7 +238,7 @@ font-size:12px;
 .PCTarefas
 {
     
-    margin-top:0.5%;
+    margin-top:4%;
     margin-left:4%;
     font-family:"Arial"; 
     font-size:18px;
@@ -271,7 +274,7 @@ font-size:12px;
 .POP
 {
     display:none;
-    margin-top:0.5%;
+    margin-top:7%;
     margin-left:4%;
     font-family:"Arial"; 
     font-size:18px;
@@ -282,8 +285,7 @@ font-size:12px;
 .POP table
 {
     width: 100%;
-    margin-right:4%;
-    margin-top:0.5%;
+    margin-top:2%;
     font-family: Arial;
     font-size: 14px;
     border-spacing: 0;
@@ -363,6 +365,7 @@ font-size:12px;
 
 .determinarPOP input
 {
+    margin-top:1%;
     float:right;
     margin-right:16.4%;
     font-family:"Arial"; 
@@ -376,13 +379,13 @@ font-size:12px;
 
 .grau
 {
-    margin-top:0.5%;
+    margin-right:3.5%;
     float:right;
-    margin-right:10%;
     width:200px;
     background-color: white;
     text-align:center;
     border:1px solid black;
+  
 
 }
 
@@ -421,6 +424,8 @@ font-size:12px;
 
 .ui-menu
 {
+    overflow-y: scroll;
+    height:100px;
     font-family: Arial;
     position: absolute;
     top: 100%;
