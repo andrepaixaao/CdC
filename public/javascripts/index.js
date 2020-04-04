@@ -45,8 +45,11 @@ $(document).ready(function(){
           // add the selected item
           terms.push( ui.item.value );
           // add placeholder to get the comma-and-space at the end
-          terms.push( "" );
-          this.value = terms.join( ", " );
+        
+          var x = document.createElement("Chips");
+          x.innerHTML=terms+"<span class='closebtn' onClick=this.parentElement.style.display='none'>x</span>";
+          document.getElementById("areaTarefas").appendChild(x);
+          this.value="";
           return false;
         }
       });
