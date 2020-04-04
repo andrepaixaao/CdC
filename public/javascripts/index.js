@@ -14,7 +14,7 @@ $(document).ready(function(){
   
   ];
     function split( val ) {
-      return val.split( /,\s*/ );
+      return val.split( /;\s*/ );
     }
     function extractLast( term ) {
       return split( term ).pop();
@@ -22,29 +22,12 @@ $(document).ready(function(){
     $( "#tarefas" )
       // don't navigate away from the field on tab when selecting an item
       .on( "keydown", function( event ) {
-        if ( event.keyCode === $.ui.keyCode.TAB &&
-            $( this ).autocomplete( "instance" ).menu.active ) {
-          event.preventDefault();
-        }
-      })
-      .autocomplete({
-        minLength: 0,
-        source: function( request, response ) {
-          // delegate back to autocomplete, but extract the last term
-          response( $.ui.autocomplete.filter(
-            availableTarefas, extractLast( request.term ) ) );
-        },
-        focus: function() {
-          // prevent value inserted on focus
-          return false;
-        },
-        select: function( event, ui ) {
+        if ( event.key === ";" || event.key=="Enter")
+        {
+        console.log("entrei");
           var terms = split( this.value );
           // remove the current input
-          terms.pop();
           // add the selected item
-          terms.push( ui.item.value );
-          // add placeholder to get the comma-and-space at the end
         
           var x = document.createElement("Chips");
           x.innerHTML=terms+"<span class='closebtn' onClick=this.parentElement.style.display='none'>x</span>";
@@ -52,40 +35,26 @@ $(document).ready(function(){
           this.value="";
           return false;
         }
-      });
+        }),
+     
       $( "#sintomas" )
       // don't navigate away from the field on tab when selecting an item
       .on( "keydown", function( event ) {
-        if ( event.keyCode === $.ui.keyCode.TAB &&
-            $( this ).autocomplete( "instance" ).menu.active ) {
-          event.preventDefault();
-        }
-      })
-      .autocomplete({
-        minLength: 0,
-        source: function( request, response ) {
-          // delegate back to autocomplete, but extract the last term
-          response( $.ui.autocomplete.filter(
-            availableSintomas, extractLast( request.term ) ) );
-        },
-        focus: function() {
-          // prevent value inserted on focus
-          return false;
-        },
-        select: function( event, ui ) {
+        if ( event.key === ";" || event.key=="Enter")
+        {
+        console.log("entrei");
           var terms = split( this.value );
           // remove the current input
-          terms.pop();
           // add the selected item
-          terms.push( ui.item.value );
-          // add placeholder to get the comma-and-space at the end
+        
           var x = document.createElement("Chips");
           x.innerHTML=terms+"<span class='closebtn' onClick=this.parentElement.style.display='none'>x</span>";
           document.getElementById("areaSintomas").appendChild(x);
           this.value="";
           return false;
         }
-      });
+        }),
+     
 
       $( "#lsintomas" ).autocomplete({
         minLength: 0,
