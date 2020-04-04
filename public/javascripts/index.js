@@ -79,8 +79,10 @@ $(document).ready(function(){
           // add the selected item
           terms.push( ui.item.value );
           // add placeholder to get the comma-and-space at the end
-          terms.push( "" );
-          this.value = terms.join( ", " );
+          var x = document.createElement("Chips");
+          x.innerHTML=terms+"<span class='closebtn' onClick=this.parentElement.style.display='none'>x</span>";
+          document.getElementById("areaSintomas").appendChild(x);
+          this.value="";
           return false;
         }
       });
@@ -103,9 +105,9 @@ $(document).ready(function(){
           // add the selected item
           terms.push( ui.item.value );
           // add placeholder to get the comma-and-space at the end
-          terms.push( "" );
-          var sintomas=document.getElementById('sintomas');
-          sintomas.value =sintomas.value +terms.join( ", " );
+          var x = document.createElement("Chips");
+          x.innerHTML=terms+"<span class='closebtn' onClick=this.parentElement.style.display='none'>x</span>";
+          document.getElementById("areaSintomas").appendChild(x);
           return false;
         }
       });
@@ -128,9 +130,9 @@ $(document).ready(function(){
           // add the selected item
           terms.push( ui.item.value );
           // add placeholder to get the comma-and-space at the end
-          terms.push( "" );
-          var tarefas=document.getElementById('tarefas');
-          tarefas.value =tarefas.value +terms.join( ", " );
+          var x = document.createElement("Chips");
+          x.innerHTML=terms+"<span class='closebtn' onClick=this.parentElement.style.display='none'>x</span>";
+          document.getElementById("areaTarefas").appendChild(x);
           return false;
         }
       });
