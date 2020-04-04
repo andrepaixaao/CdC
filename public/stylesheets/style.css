@@ -10,12 +10,6 @@
 }
 
 
-@media only screen and (max-height: 1000px) {
-    body {
-        height:50%;
-    }
-  }
-
 .navbar a{
     text-align:center;
     padding-top:16%;
