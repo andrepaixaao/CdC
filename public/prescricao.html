@@ -1,19 +1,440 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Prescrição</title>
+    <meta name="viewport" content="height=device, initial-scale=1.0">
     <link rel="stylesheet" href="stylesheets/style.css">
 </head>
-<body>
-    <nav class="navbar" >
+<div class="container">
+    <div class="navbar">
         <a href="index.html"><img src="images/home.png">Página Inicial</a>
         <a href="candidatura.html"><img src="images/candidatura.png">Candidatura Membro</a>
         <a href="prescritores.html"><img src="images/prescritores.png">Prescritores</a>
         <a href="associacoes.html"><img src="images/associacoes.png">Associações</a>
         <a href="fornecedores.html"><img src="images/fornecedores.png">Fornecedores</a>
-        <a  href="configurarpop.html"><img src="images/configurarpop.png">Configurar POP</a>
+        <a href="configurarpop.html"><img src="images/configurarpop.png">Configurar POP</a>
         <a href="configurarsistema.html"><img src="images/configurarsis.png">Configurar Sistema</a>
-      </nav>
+    </div>
+
+    <div class=contentP>
+        <div class="referencia">
+            Código Ref
+            <input type="text" id="cod">
+            <input type="button" id="Confirmar" value="OK">
+            <div class="criarCodigo">
+                <input type="button" id="criarCodigo" value="Criar Código">
+            </div>
+        </div>
+        <div class=prescricaoPOP>
+            Pop
+            <select id="PatologiaPOP">
+                <option value="volvo">LER( Lesão Esforço Repetitivo )</opti<on>
+
+            </select>
+
+        </div>
+        <div class="DP">
+            <b> D&P %<br>15,5</b>
+        </div>
+
+        <div class="Recomendacoes">
+            Recomendações Local de Trabalho
+            <div class="tabelas">
+            <table id="tablePreco">
+                <tr>
+                    <th id="tipoCima"></th>
+                    <th id="descricaoCima"></th>
+                    <th id="isoCima"></th>
+                    <th id="adaptacaoCima"></th>
+                    <th id="beneficiosCima"></th>
+                    <th id="colmatacaoCimaR">Σ</th>
+                    <th id="precoCimaR">Σ</th>
+                    <th id="requesitosCima"></th>
+                    <th id="scrollCima"></th>
+                </tr>
+            </table>
+            <table id="tableRP">
+                <tr>
+                    <th id="colTipoR">Tipo</th>
+                    <th id="colDescricaoR">Descrição</th>
+                    <th id="colIsoR">ISO/Ref.</th>
+                    <th id="colAdaptacaoR">Adaptação</th>
+                    <th id="colBeneficiosR">Beneficios</th>
+                    <th id="colColmatacaoR">Colmatação</th>
+                    <th id="colPrecoR">Custo</th>
+                    <th id="colRequisitosR">Requisitos</th>
+                    <th id="colScrollR"></th>
+                </tr>
+                <tr>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td><input type="checkbox"></td>
+                </tr>
+
+
+            </table>
+        </div>
+    </div>
+
+        <div class="Produtos">
+            Produtos de Apoio
+            <div class="tabelas">
+                <table id="tablePreco">
+                    <tr>
+                        <th id="tipoCima"></th>
+                        <th id="descricaoCima"></th>
+                        <th id="isoCima"></th>
+                        <th id="adaptacaoCima"></th>
+                        <th id="beneficiosCima"></th>
+                        <th id="colmatacaoCimaP">Σ</th>
+                        <th id="precoCimaP">Σ</th>
+                        <th id="requesitosCima"></th>
+                        <th id="scrollCima"></th>
+                    </tr>
+                </table>
+                <table id="tableRP">
+                    <tr>
+                        <th id="colTipoP">Tipo</th>
+                        <th id="colDescricaoP">Descrição</th>
+                        <th id="colIsoP">ISO/Ref.</th>
+                        <th id="colAdaptacaoP">Adaptação</th>
+                        <th id="colBeneficiosP">Beneficios</th>
+                        <th id="colColmatacaoP">Colmatação</th>
+                        <th id="colPrecoP">Custo</th>
+                        <th id="colRequisitosP">Requisitos</th>
+                        <th id="colScrollP"></th>
+                    </tr>
+                    <tr>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td>teste</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
     
- </body>
+    
+                </table>
+            </div>
+        </div>
+        <div class="Informacoes">
+            Informações Adicionais
+            <div class="Add">
+                <a href=""><img src="images/attach.png">Regulamentação SAPA</a>
+                <a href=""><img src="images/pdf.png">Sistema de Atribuição de Produtos de Apoio</a>
+                <a href=""><img src="images/attach.png">Atestado Médico de Incapacidade Multiuso</a>
+                <a href=""><img src="images/pdf.png">Guia Prático - Prestação Social Para a Inclusão</a>
+            </div>
+            </div>
+
+
+
+<div class="Imprimir">
+    <input type="button" id="imprimir" value="Imprimir">
+</div>
+        
+        </div>
+       
+
+
+
+
+    </div>
+
 </html>

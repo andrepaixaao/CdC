@@ -521,6 +521,363 @@ chips .closebtn:hover {
     color: #000;
   }
 
+ 
+
+  .prescricaoPOP
+  {
+    margin-top:2%;
+    font-family:"Arial"; 
+    font-size:18px;
+    font-weight: bold;  
+    width:85%;
+    float:left; 
+    margin-bottom:2%;   
+
+  }
+
+  .prescricaoPOP select
+  {
+    height:28px;
+    width:90%;
+    font-size:16px;
+    background-color:#87afd3;
+    font-weight: normal;
+    margin-left:2%;
+
+  }
+
+  .DP
+  {
+    width:10%;
+    font-size:18px;
+    height:5%;
+    background-color: white;
+    text-align:center;
+    vertical-align: center;
+    border:1px solid black;
+    float:right;
+    margin-top:1%;
+    font-family: Arial;
+    margin-bottom:2%;
+    
+
+
+  }
+
+  .contentP
+  {
+    position: relative;
+    margin-left:18%;
+    margin-right:12%;
+    width:70%;
+  }
+
+
+  .referencia
+  {
+    margin-top:2%;
+    font-family:"Arial"; 
+    font-size:16px;
+    font-weight: bold;  
+    width:100%;
+    float:left;
+    margin-bottom:1%;
+  }
+  .referencia input[type='text']
+  {
+    background-color:#87afd3;
+    font-size:14px;
+    font-family:"Arial";
+
+  }
+
+  .referencia input[type='button']
+  {
+    font-size:14px;
+    background-color:#3C61A5;
+    color:white;
+  }
+  .criarCodigo
+  {
+      float:right;
+  }
+
+  .criarCodigo input
+  {
+        float:right;
+        font-family:"Arial"; 
+        font-size:14px;
+        background-color:#3C61A5;
+        color:white;
+        width:200px;
+        margin-top:auto;
+  }
+
+  .Recomendacoes
+  {
+    margin-top:2%;
+    font-family:"Arial"; 
+    font-size:18px;
+    font-weight: bold;
+   
+    
+  }
+
+  .tabelas{
+      overflow-y:scroll;
+      max-height:160px;
+  }
+  .Produtos
+  {
+    margin-top:2%;
+    font-family:"Arial"; 
+    font-size:18px;
+    font-weight: bold;
+  }
+
+#tablePreco
+{
+    width: 100%;
+    font-family: Arial;
+    font-size: 14px;
+    border-spacing: 0;
+}
+
+ #tableRP td{
+     padding-top: 5px;
+     padding-bottom: 5px;
+     text-align: center;
+     color: black;
+     background-color: white;
+     border:1px solid black;
+  
+ }
+
+#tableRP
+  {
+      width: 100%;
+      font-family: Arial;
+      font-size: 14px;
+      border-spacing: 0;
+     
+  }
+  
+ #tableRP th{
+     padding-top: 3px;
+     padding-bottom: 3px;
+      text-align: left;
+      color: white;
+      background-color: darkgrey;
+      border: 1px solid black;
+      text-align:center;
+      font-weight: normal;
+      
+  }
+  #tipoCima
+  {
+      width:10%;
+  }
+  #descricaoCima
+  {
+    width:25%;
+
+  }
+  #isoCima
+  {
+    width:10%;
+
+  }
+  #adaptacaoCima
+  {
+    width:10%;
+
+  }
+  #beneficiosCima
+  {
+    width:10%;
+
+  }
+  #requesitosCima
+  {
+    width:10%;
+
+  }
+  #scrollCima
+  {
+    width:5%;
+
+  }
+  #colmatacaoCimaR
+  {
+    width:10%;
+
+    padding-top: 3px;
+    padding-bottom: 3px;
+     text-align: left;
+     color: white;
+     background-color: darkgrey;
+     border: 1px solid black;
+     text-align:center;
+     font-weight: normal;
+  }
+
+  #precoCimaR
+  {
+    width:10%;
+    padding-top: 3px;
+    padding-bottom: 3px;
+     text-align: left;
+     color: white;
+     background-color: darkgrey;
+     border: 1px solid black;
+     text-align:center;
+     font-weight: normal;
+  }
+  #colmatacaoCimaP
+  {
+    width:10%;
+
+    padding-top: 3px;
+    padding-bottom: 3px;
+     text-align: left;
+     color: white;
+     background-color: darkgrey;
+     border: 1px solid black;
+     text-align:center;
+     font-weight: normal;
+  }
+
+  #precoCimaP
+  {
+    width:10%;
+    padding-top: 3px;
+    padding-bottom: 3px;
+     text-align: left;
+     color: white;
+     background-color: darkgrey;
+     border: 1px solid black;
+     text-align:center;
+     font-weight: normal;
+  }
+  #colTipoR
+  {
+    width:10%;
+  }
+  #colDescricaoR
+  {
+      width:25%;
+  }
+  #colIsoR
+  {
+    width:10%;
+
+  }
+  #colAdaptacaoR
+  {
+      width:10%;
+  }
+  #colBeneficiosR
+  {
+      width:10%;
+  }
+  #colColmatacaoR
+  {
+      width:10%;
+  }
+#colPrecoR
+{
+    width:10%;
+}
+#colRequisitosR
+{
+    width:10%;
+}
+#colScrollR
+{
+    width:5%;
+}
+#colTipoP
+  {
+    width:10%;
+  }
+  #colDescricaoP
+  {
+      width:25%;
+  }
+  #colIsoP
+  {
+    width:10%;
+
+  }
+  #colAdaptacaoP
+  {
+      width:10%;
+  }
+  #colBeneficiosP
+  {
+      width:10%;
+  }
+  #colColmatacaoP
+  {
+      width:10%;
+  }
+#colPrecoP
+{
+    width:10%;
+}
+#colRequisitosP
+{
+    width:10%;
+}
+#colScrollP
+{
+    width:5%;
+}
+
+.Informacoes
+  {
+    margin-top:2%;
+    font-family:"Arial"; 
+    font-size:18px;
+    font-weight: bold;
+
+  }
+
+.Add img
+{
+    height:18px;
+}
+
+.Add
+{
+    font-family:"Arial"; 
+    font-size:12px;
+}
+.Add a
+{
+    display:block;
+    text-decoration: none;
+    color:black;
+    margin-top:1%;
+    font-family:Arial;
+}
+
+.Add a:hover{
+    color:#3C61A5;
+}
+
+.Imprimir input
+{
+    float:right;
+    font-size:14px;
+    background-color:#3C61A5;
+    color:white;
+    width:200px;
+    height:26px;
+    margin-bottom:1%;
+}
+
+
   @media screen and (max-width: 600px) {
     .navbar a
     {
@@ -536,6 +893,13 @@ chips .closebtn:hover {
     .navbar
     {
         width:8%;
+    }
+
+    .DP
+    {
+        height:3%;
+        font-size:12px;
+
     }
 
     
