@@ -1,4 +1,7 @@
 $(document).ready(function(){
+  preencherGenero();
+  preencherHabilitacao();
+  preencherLocalidade();
   var availableTarefas = [
       "Andar",
       "Correr",
@@ -105,7 +108,6 @@ $(document).ready(function(){
           return false;
         }
       });
-  
   })
   function determinarPOP()
   {
@@ -138,3 +140,92 @@ $(document).ready(function(){
 
   }
 
+function preencherGenero()
+  {
+    var comboGenero=document.getElementById('GeneroComboId');
+  $.ajax({
+    url: "/GetGenero",
+    method:"get",
+    // sending in json
+    contentType:"application/json",
+    // receiving in json
+    dataType:"json",
+    success: function(res,status,jqXHR) {
+        console.log(status);
+        if (res.err) {
+            console.log(JSON.stringify(res));
+            return;
+        }
+
+        for(i in res)  {
+          comboGenero.options[i]=new Option(res[i].nomeGenero,i);
+          document.getElementById('GeneroComboId').selectedIndex='-1';
+
+          console.log(res[i])
+        }
+    }
+    
+    , error : function() { alert(JSON.stringify('error')); }
+    
+    });
+  }
+
+
+  function preencherHabilitacao()
+  {
+    var comboHabilitacao=document.getElementById('Habilitacoes');
+  $.ajax({
+    url: "/GetHabilitacao",
+    method:"get",
+    // sending in json
+    contentType:"application/json",
+    // receiving in json
+    dataType:"json",
+    success: function(res,status,jqXHR) {
+        console.log(status);
+        if (res.err) {
+            console.log(JSON.stringify(res));
+            return;
+        }
+
+        for(i in res)  {
+          comboHabilitacao.options[i]=new Option(res[i].nomeHabilitacao,i);
+          document.getElementById('Habilitacoes').selectedIndex='-1';
+
+          console.log(res[i])
+        }
+    }
+    
+    , error : function() { alert(JSON.stringify('error')); }
+    
+    });
+  }
+
+  function preencherLocalidade()
+  {
+ 
+    document.getElementById('Localidade').selectedIndex='-1';
+  $.ajax({
+    url: "/GetLocalidade",
+    method:"get",
+    // sending in json
+    contentType:"application/json",
+    // receiving in json
+    dataType:"json",
+    success: function(res,status,jqXHR) {
+        console.log(status);
+        if (res.err) {
+            console.log(JSON.stringify(res));
+            return;
+        }
+
+        for(i in res)  {
+          comboLocalidade.options[i]=new Option(res[i].nomeLocalidade,i);
+          var comboLocalidade=document.getElementById('Localidade');
+        }
+    }
+    
+    , error : function() { alert(JSON.stringify('error')); }
+    
+    });
+  }

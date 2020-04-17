@@ -575,13 +575,13 @@ chips .closebtn:hover {
 
   .referencia
   {
-    margin-top:2%;
+    margin-top:3%;
     font-family:"Arial"; 
     font-size:16px;
     font-weight: bold;  
     width:100%;
     float:left;
-    margin-bottom:1%;
+    margin-bottom:2%;
   }
   .referencia input[type='text']
   {
@@ -615,7 +615,6 @@ chips .closebtn:hover {
 
   .Recomendacoes
   {
-    margin-top:2%;
     font-family:"Arial"; 
     font-size:18px;
     font-weight: bold;
@@ -629,7 +628,7 @@ chips .closebtn:hover {
   }
   .Produtos
   {
-    margin-top:2%;
+    margin-top:3%;
     font-family:"Arial"; 
     font-size:18px;
     font-weight: bold;
@@ -836,7 +835,7 @@ chips .closebtn:hover {
 
 .Informacoes
   {
-    margin-top:2%;
+    margin-top:3%;
     font-family:"Arial"; 
     font-size:18px;
     font-weight: bold;
@@ -846,6 +845,7 @@ chips .closebtn:hover {
 .Add img
 {
     height:18px;
+    margin-right:5px;
 }
 
 .Add
@@ -858,7 +858,7 @@ chips .closebtn:hover {
     display:block;
     text-decoration: none;
     color:black;
-    margin-top:1%;
+    margin-top:1.5%;
     font-family:Arial;
 }
 
@@ -874,7 +874,7 @@ chips .closebtn:hover {
     color:white;
     width:200px;
     height:26px;
-    margin-bottom:1%;
+    margin-bottom:1%
 }
 
 
