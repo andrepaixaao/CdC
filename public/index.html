@@ -30,8 +30,7 @@
 
         <div class="Patologia">
           Patologia
-           <select id="PatologiaId">
-            <option value="volvo">LER( Lesão Esforço Repetitivo )</opti<on>
+           <select id="PatologiaId" onchange="adicionarPat(this.value)">
             
           </select>
           <img onClick="addLinha()" src="images/adicionar.png">
@@ -71,13 +70,11 @@
                       <tr></tr>
                     <td>Setor Atividade</td>
                     <td><select id="setorAtividade">
-                        <option value="DesignPublicidade">Design & Publicidade</option>
-                        <option value="Marketing">Marketing</option>
+                       
                       </select></td>
                       <td></td>
                     <td>Função</td>
                     <td><select id="Funcao">
-                        <option value="DGrafico">Designer Gráfico</option>
                     </select></td>
                 </tr>
                </tr>
