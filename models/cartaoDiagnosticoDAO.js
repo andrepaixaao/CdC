@@ -237,3 +237,24 @@ module.exports.newTarefa=function(id,callback,next)
        
     })
 }
+
+module.exports.getPatologiaEspecifica=function(id,callback,next)
+{
+    pool.getConnection(function(err,conn)
+    {
+        if(err)
+        {
+            callback(err,{code: 500, status: "Error in the connection to the database"})
+        }
+       conn.query("select * from Patologia where idPatologia="+id, function(err, results) {
+            conn.release();
+            if (err) {
+                console.log(err);
+                callback(err,{code: 500, status: "Error in a database query"})
+                return;
+            } 
+            callback(false, {code: 200, status:"ok", data: results})
+        })
+       
+    })
+}

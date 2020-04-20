@@ -1,6 +1,7 @@
 var availableTarefas = [];
   
 var availableSintomas= [];
+var contPat=0;
 
 
 $(document).ready(function(){
@@ -190,9 +191,16 @@ $(document).ready(function(){
   
   function addLinha()
   {
-  
-      var x = document.getElementById("patEscolhidas")
+    if(contPat!=0)
+    {
+    var x = document.getElementById("patEscolhidas");
+    if(x.innerHTML.indexOf("<tr><td></td><td></td><td></td></tr>")!=-1)
+    {}
+    else
+    {
       x.innerHTML+="<tr><td></td><td></td><td></td></tr>";
+    }
+  }
   }
   
   function verResultados()
@@ -458,6 +466,69 @@ function preencherGenero()
 
   function adicionarPat(patEscolhida)
   {
-    console.log(teste);
+    if(contPat==0)
+    {
+      document.getElementById("PatologiaId").remove(document.getElementById("PatologiaId").selectedIndex);
+      $.ajax({
+        url: "/GetSintoma/"+patEscolhida,
+        method:"get",
+        // sending in json
+        contentType:"application/json",
+        // receiving in json
+        dataType:"json",
+        success: function(res,status,jqXHR) {
+          for(i in res)
+          {
+            var x = document.getElementById("patEscolhidas");
+            x.innerHTML+="<tr><td>"+res[i].nomePatologia+"</td><td>"+res[i].descricaoPatologia+"</td><td>"+res[i].referenciaPatologia+"</td></tr>";
+            console.log(res);
+          }
+          
+        }
+        
+        , error : function() { alert(JSON.stringify('error')); }
+        
+        });
+      console.log("isto metia");
+      contPat++;
+    }
+
+    if(contPat!=0)
+    {
+
+    var x = document.getElementById("patEscolhidas");
+    if(x.innerHTML.indexOf("<tr><td></td><td></td><td></td></tr>")!=-1)
+    {
+      
+      document.getElementById("PatologiaId").remove(document.getElementById("PatologiaId").selectedIndex);
+
+      contPat++;
+      $.ajax({
+        
+        url: "/GetSintoma/"+patEscolhida,
+        method:"get",
+        // sending in json
+        contentType:"application/json",
+        // receiving in json
+        dataType:"json",
+        
+        success: function(res,status,jqXHR) {
+          for(i in res)
+          {
+            x.deleteRow(contPat);
+            x.innerHTML+="<tr><td>"+res[i].nomePatologia+"</td><td>"+res[i].descricaoPatologia+"</td><td>"+res[i].referenciaPatologia+"</td></tr>";
+            console.log(res);
+            
+          }
+          
+        }
+        
+        , error : function() { alert(JSON.stringify('error')); }
+        
+        });
+      }
+      
+    }
+    document.getElementById("PatologiaId").selectedIndex=-1;
   }
   
