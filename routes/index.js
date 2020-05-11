@@ -117,8 +117,57 @@ router.get('/NewTarefa/:id', function(req, res, next){
 },next)
 });
 
+
+
+
+router.get('/GetProcedimentosEscolhidos/:id', function(req, res, next){
+  cartaoDiagnosticoDAO.getProcedimentosEscolhidos(req.params.id,function(err,result){
+    if (err) {
+        res.statusMessage=result.status;
+        res.status(result.code).json(err);
+        return;
+    }
+    res.status(result.code).send(result.data);
+},next)
+});
+
+router.get('/GetProdutosProcedimentos/:id', function(req, res, next){
+  cartaoDiagnosticoDAO.getProdutosProcedimento(req.params.id,function(err,result){
+    if (err) {
+        res.statusMessage=result.status;
+        res.status(result.code).json(err);
+        return;
+    }
+    res.status(result.code).send(result.data);
+},next)
+});
+
+
+router.get('/getRecomendacoesProcedimentos/:id', function(req, res, next){
+  cartaoDiagnosticoDAO.getRecomendacoesProcedimento(req.params.id,function(err,result){
+    if (err) {
+        res.statusMessage=result.status;
+        res.status(result.code).json(err);
+        return;
+    }
+    res.status(result.code).send(result.data);
+},next)
+});
+
+
 router.get('/GetSintomas', function(req, res, next){
   cartaoDiagnosticoDAO.getSintomas(function(err,result){
+    if (err) {
+        res.statusMessage=result.status;
+        res.status(result.code).json(err);
+        return;
+    }
+    res.status(result.code).send(result.data);
+},next)
+});
+
+router.get('/GetProcedimentos', function(req, res, next){
+  cartaoDiagnosticoDAO.getProcedimentos(function(err,result){
     if (err) {
         res.statusMessage=result.status;
         res.status(result.code).json(err);

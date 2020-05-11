@@ -183,11 +183,7 @@ $(document).ready(function(){
         document.getElementById("PatologiaId").selectedIndex=-1;
 
   })
-  function determinarPOP()
-  {
-      var x = document.getElementById("POP");
-      x.style.display="block";
-  }
+ 
   
   function addLinha()
   {
@@ -205,6 +201,13 @@ $(document).ready(function(){
   
   function verResultados()
   {
+    var arrId = [];
+            $(':checkbox:checked').each(function(){
+                 var id = $(this).closest('tr').attr('id');
+                 arrId.push(id);
+            })
+            console.log(arrId);
+    localStorage.setItem("ProcedimentosEscolhidos",arrId);
     window.location.href="prescricao.html";
   }
 
@@ -532,3 +535,35 @@ function preencherGenero()
     document.getElementById("PatologiaId").selectedIndex=-1;
   }
   
+
+  function determinarPOP()
+  {
+    var tabela = document.getElementById("POP");
+     tabela.style.display="block";
+
+    var x=document.getElementById("ListaPOP");
+    $.ajax({
+      url: "/GetProcedimentos",
+      method:"get",
+      // sending in json
+      contentType:"application/json",
+      // receiving in json
+      dataType:"json",
+      success: function(res,status,jqXHR) {
+          console.log(status);
+          if (res.err) {
+              console.log(JSON.stringify(res));
+              return;
+          }
+  
+          for(i in res)  {
+            console.log(res);
+            x.innerHTML+="<tr id="+res[i].idProcedimento+"><td></td><td>"+res[i].nomeProcedimento+"</td><td>"+res[i].ColmatacaoTotal+" %</td><td>"+res[i].PrecoTotal+" €</td><td><input type='checkbox'></td></tr> "      
+          }
+         
+      }
+      
+      , error : function() { alert(JSON.stringify('error')); }
+      
+      });
+  }
