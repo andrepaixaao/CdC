@@ -567,3 +567,14 @@ function preencherGenero()
       
       });
   }
+
+  function abrirMembros()
+  {
+    $('.hover_bkgr_fricc').show();
+
+  }
+
+  function fecharPop(){
+    console.log("boas");
+    $('.hover_bkgr_fricc').hide();
+  }

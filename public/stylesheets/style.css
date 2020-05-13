@@ -42,7 +42,7 @@ margin:auto;
   body
   {
     background-color:#E8EAEC;
-
+    overflow-x:hidden;
   }
 .container
 {
@@ -945,5 +945,196 @@ optgroup {
 
     
   }
-
+/* Popup box BEGIN */
+.hover_bkgr_fricc{
+    display:none;
+    height:100%;
+    position:fixed;
+    text-align:left;
+    margin-left:15%;
+    margin-right:15%;
+    width:100%;
+    font-family: "Arial";
+    font-size: 18px;
+    font-weight: bold;
   
+}
+
+.hover_bkgr_fricc img{
+    margin-right:16.5%;
+    height: 23px;
+    vertical-align:bottom;
+    
+}
+
+.dadosPop
+{
+    width:45%;
+    margin-top:1%;
+}
+
+.dadosPop select
+{
+    margin-top:2%;
+    height:24px;
+    width:100%;
+    font-size:16px;
+    background-color:#87afd3;
+    font-weight: normal;
+    color:white;
+}
+
+
+.dadosPop
+{
+    float:left;
+    width:45%;
+}
+.nomesPop
+{
+
+    float:left;
+    width:45%;
+    margin-top:1%;
+    margin-left:10%;
+    
+}
+
+.emailPop
+{
+    float:left;
+    width:45%;
+    margin-top:1%;
+
+}
+.contatoPop
+{
+    float:left;
+    width:45%;
+    margin-top:1%;
+    margin-left:10%;
+    
+}
+
+.nomesPop input[type='text'] 
+{
+    background-color:#87afd3;
+font-size:16px;
+font-family:"Arial";
+margin-top:2.8%;
+width:100%;
+
+}
+.contatoPop input[type='text'] 
+{background-color:#87afd3;
+font-size:16px;
+font-family:"Arial";
+margin-top:2.8%;
+width:100%;
+}
+
+.emailPop input[type='text'] 
+{background-color:#87afd3;
+font-size:16px;
+font-family:"Arial";
+margin-top:2.8%;
+width:100%;
+}
+
+
+
+.descricaoPop
+{
+    margin-top:2%;
+    float:left;
+    margin-left:0;
+    width:100%;
+ 
+}
+
+.urlPop
+{
+    margin-top:2%;
+    float:left;
+    margin-left:0;
+    width:100%;
+ 
+}
+
+
+.urlPop input[type='text'] 
+{background-color:#87afd3;
+font-size:16px;
+font-family:"Arial";
+margin-top:1%;
+width:100%;
+}
+
+.descricaoPop textarea
+{
+    background-color:#87afd3;
+    font-size:16px;
+    font-family:"Arial";
+    margin-top:1%;
+    width:100%;
+    height:100px;
+}
+.hover_bkgr_fricc .helper{
+    display:inline-block;
+    height:100%;
+    vertical-align:middle;
+}
+.hover_bkgr_fricc > div {
+    background:rgb(233,235,237);
+    -webkit-box-shadow: -1px 1px 5px 9px rgba(0,0,0,0.75);
+-moz-box-shadow: -1px 1px 5px 9px rgba(0,0,0,0.75);
+box-shadow: -1px 1px 5px 9px rgba(0,0,0,0.75);
+    display: inline-block;
+    height: auto;
+    vertical-align: middle;
+    width: 60%;
+    position: relative;
+    border-radius: 8px;
+    padding: 15px 5%;
+}
+
+
+.hover_bkgr_fricc input[type='button']{
+    float:right;
+    font-family:"Arial"; 
+    font-size:14px;
+    background-color:#3C61A5;
+    color:white;
+    width:150px;
+    height:26px;
+    margin-top:2%;
+
+}
+.popupCloseButton {
+    background-color: #fff;
+    border: 3px solid #999;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-block;
+    font-family: arial;
+    font-weight: bold;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 25px;
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+.popupCloseButton:hover {
+    background-color: #ccc;
+}
+.trigger_popup_fricc {
+    cursor: pointer;
+    font-size: 20px;
+    margin: 20px;
+    display: inline-block;
+    font-weight: bold;
+}
+/* Popup box BEGIN */
