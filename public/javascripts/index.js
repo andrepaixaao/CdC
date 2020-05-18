@@ -2,6 +2,7 @@ var availableTarefas = [];
   
 var availableSintomas= [];
 var contPat=0;
+var patologiaEscolhida=0;
 
 
 $(document).ready(function(){
@@ -12,6 +13,8 @@ $(document).ready(function(){
   preencherLocalidade();
   preencherSetor();
   preencherFuncao();
+  sintomasSetAutoComplete();
+  tarefasSetAutoComplete();
 
 
  
@@ -20,55 +23,7 @@ $(document).ready(function(){
   var contT=0;
 
   
-  $( "#lsintomas" ).autocomplete({
-    minLength: 0,
-    source: function( request, response ) {
-      // delegate back to autocomplete, but extract the last term
-      response( $.ui.autocomplete.filter(
-        availableSintomas, extractLast( request.term ) ) );
-    },
-    focus: function() {
-      // prevent value inserted on focus
-      return false;
-    },
-    select: function( event, ui ) {
-      var terms = split( this.value );
-      // remove the current input
-      terms.pop();
-      // add the selected item
-      terms.push( ui.item.value );
-      // add placeholder to get the comma-and-space at the end
-      var x = document.createElement("Chips");
-      x.innerHTML=terms+"<span class='closebtn' onClick=this.parentElement.style.display='none'>x</span>";
-      document.getElementById("areaSintomas").appendChild(x);
-      return false;
-    }
-  });
 
-  $( "#ltarefas" ).autocomplete({
-    minLength: 0,
-    source: function( request, response ) {
-      // delegate back to autocomplete, but extract the last term
-      response( $.ui.autocomplete.filter(
-        availableTarefas, extractLast( request.term ) ) );
-    },
-    focus: function() {
-      // prevent value inserted on focus
-      return false;
-    },
-    select: function( event, ui ) {
-      var terms = split( this.value );
-      // remove the current input
-      terms.pop();
-      // add the selected item
-      terms.push( ui.item.value );
-      // add placeholder to get the comma-and-space at the end
-      var x = document.createElement("Chips");
-      x.innerHTML=terms+"<span class='closebtn' onClick=this.parentElement.style.display='none'>x</span>";
-      document.getElementById("areaTarefas").appendChild(x);
-      return false;
-    }
-  });
 
   $.ajax({
     url: "/GetTipoPatologia",
@@ -130,12 +85,7 @@ $(document).ready(function(){
 
     
 
-    function split( val ) {
-      return val.split( /;\s*/ );
-    }
-    function extractLast( term ) {
-      return split( term ).pop();
-    }
+  
     $( "#tarefas" )
       // don't navigate away from the field on tab when selecting an item
       .on( "keydown", function( event ) {
@@ -469,8 +419,12 @@ function preencherGenero()
 
   function adicionarPat(patEscolhida)
   {
+    console.log(availableSintomas);
+    patologiaEscolhida=patEscolhida;
     if(contPat==0)
     {
+      availableSintomas=[];
+      availableTarefas=[];
       document.getElementById("PatologiaId").remove(document.getElementById("PatologiaId").selectedIndex);
       $.ajax({
         url: "/GetSintoma/"+patEscolhida,
@@ -494,6 +448,8 @@ function preencherGenero()
         });
       console.log("isto metia");
       contPat++;
+      preencherSintomasB();
+      preencherTarefasB();
     }
 
     if(contPat!=0)
@@ -518,6 +474,7 @@ function preencherGenero()
         success: function(res,status,jqXHR) {
           for(i in res)
           {
+
             x.deleteRow(contPat);
             x.innerHTML+="<tr><td>"+res[i].nomePatologia+"</td><td>"+res[i].descricaoPatologia+"</td><td>"+res[i].referenciaPatologia+"</td></tr>";
             console.log(res);
@@ -529,10 +486,14 @@ function preencherGenero()
         , error : function() { alert(JSON.stringify('error')); }
         
         });
+        preencherSintomasB();
+        preencherTarefasB();
       }
+     
       
     }
     document.getElementById("PatologiaId").selectedIndex=-1;
+    
   }
   
 
@@ -578,3 +539,130 @@ function preencherGenero()
     console.log("boas");
     $('.hover_bkgr_fricc').hide();
   }
+
+
+  function preencherSintomasB()
+  {
+    $.ajax({
+      url: "/GetSintomasB/"+patologiaEscolhida,
+      method:"get",
+      // sending in json
+      contentType:"application/json",
+      // receiving in json
+      dataType:"json",
+      success: function(res,status,jqXHR) {
+          console.log(status);
+          if (res.err) {
+              console.log(JSON.stringify(res));
+              return;
+          }
+  
+          for(i in res)  {
+            console.log(res);
+            availableSintomas.push(res[i].nomeSintoma);
+            
+          }
+          console.log(availableSintomas);
+      }
+      
+      , error : function() { alert(JSON.stringify('error')); }
+      
+      });
+
+      sintomasSetAutoComplete();
+  }
+
+  function preencherTarefasB()
+  {
+$.ajax({
+      url: "/GetTarefasB/"+patologiaEscolhida,
+      method:"get",
+      // sending in json
+      contentType:"application/json",
+      // receiving in json
+      dataType:"json",
+      success: function(res,status,jqXHR) {
+          console.log(status);
+          if (res.err) {
+              console.log(JSON.stringify(res));
+              return;
+          }
+  
+          for(i in res)  {
+            console.log(res);
+            availableTarefas.push(res[i].nomeTarefa);
+            
+          }
+          console.log(availableSintomas);
+      }
+      
+      , error : function() { alert(JSON.stringify('error')); }
+      
+      });
+
+      tarefasSetAutoComplete();
+  }
+
+  function sintomasSetAutoComplete()
+  {
+  $( "#lsintomas" ).autocomplete({
+    minLength: 0,
+    source: function( request, response ) {
+      // delegate back to autocomplete, but extract the last term
+      response( $.ui.autocomplete.filter(
+        availableSintomas, extractLast( request.term ) ) );
+    },
+    focus: function() {
+      // prevent value inserted on focus
+      return false;
+    },
+    select: function( event, ui ) {
+      var terms = split( this.value );
+      // remove the current input
+      terms.pop();
+      // add the selected item
+      terms.push( ui.item.value );
+      // add placeholder to get the comma-and-space at the end
+      var x = document.createElement("Chips");
+      x.innerHTML=terms+"<span class='closebtn' onClick=this.parentElement.style.display='none'>x</span>";
+      document.getElementById("areaSintomas").appendChild(x);
+      return false;
+    }
+  });
+}
+
+
+function tarefasSetAutoComplete()
+{
+  $( "#ltarefas" ).autocomplete({
+    minLength: 0,
+    source: function( request, response ) {
+      // delegate back to autocomplete, but extract the last term
+      response( $.ui.autocomplete.filter(
+        availableTarefas, extractLast( request.term ) ) );
+    },
+    focus: function() {
+      // prevent value inserted on focus
+      return false;
+    },
+    select: function( event, ui ) {
+      var terms = split( this.value );
+      // remove the current input
+      terms.pop();
+      // add the selected item
+      terms.push( ui.item.value );
+      // add placeholder to get the comma-and-space at the end
+      var x = document.createElement("Chips");
+      x.innerHTML=terms+"<span class='closebtn' onClick=this.parentElement.style.display='none'>x</span>";
+      document.getElementById("areaTarefas").appendChild(x);
+      return false;
+    }
+  });
+}
+
+function split( val ) {
+  return val.split( /;\s*/ );
+}
+function extractLast( term ) {
+  return split( term ).pop();
+}

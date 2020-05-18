@@ -166,6 +166,17 @@ router.get('/GetSintomas', function(req, res, next){
 },next)
 });
 
+router.get('/GetSintomasB/:id', function(req, res, next){
+  cartaoDiagnosticoDAO.getSintomasB(req.params.id,function(err,result){
+    if (err) {
+        res.statusMessage=result.status;
+        res.status(result.code).json(err);
+        return;
+    }
+    res.status(result.code).send(result.data);
+},next)
+});
+
 router.get('/GetProcedimentos', function(req, res, next){
   cartaoDiagnosticoDAO.getProcedimentos(function(err,result){
     if (err) {
@@ -187,6 +198,19 @@ router.get('/GetTarefas', function(req, res, next){
     res.status(result.code).send(result.data);
 },next)
 });
+
+
+router.get('/GetTarefasB/:id', function(req, res, next){
+  cartaoDiagnosticoDAO.getTarefasB(req.params.id,function(err,result){
+    if (err) {
+        res.statusMessage=result.status;
+        res.status(result.code).json(err);
+        return;
+    }
+    res.status(result.code).send(result.data);
+},next)
+});
+
 
 
 

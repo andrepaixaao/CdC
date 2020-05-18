@@ -348,3 +348,47 @@ module.exports.getPatologiaEspecifica=function(id,callback,next)
        
     })
 }
+
+
+
+module.exports.getTarefasB=function(id,callback,next)
+{
+    pool.getConnection(function(err,conn)
+    {
+        if(err)
+        {
+            callback(err,{code: 500, status: "Error in the connection to the database"})
+        }
+       conn.query("Select * from Tarefa inner join ProcedimentoHasTarefa on ProcedimentoHasTarefa.idTarefa=Tarefa.idTarefa inner join Patologia_has_Procedimento on Patologia_has_Procedimento.Procedimento_idProcedimento=ProcedimentoHasTarefa.idProcedimento where Patologia_has_Procedimento.Patologia_idPatologia="+id, function(err, results) {
+            conn.release();
+            if (err) {
+                console.log(err);
+                callback(err,{code: 500, status: "Error in a database query"})
+                return;
+            } 
+            callback(false, {code: 200, status:"ok", data: results})
+        })
+       
+    })
+}
+
+module.exports.getSintomasB=function(id,callback,next)
+{
+    pool.getConnection(function(err,conn)
+    {
+        if(err)
+        {
+            callback(err,{code: 500, status: "Error in the connection to the database"})
+        }
+       conn.query("Select * from Sintoma inner JOIN ProcedimentoHasSintoma on ProcedimentoHasSintoma.idSintoma=Sintoma.idSintoma inner join Patologia_has_Procedimento on Patologia_has_Procedimento.Procedimento_idProcedimento=ProcedimentoHasSintoma.idProcedimento where Patologia_has_Procedimento.Patologia_idPatologia="+id, function(err, results) {
+            conn.release();
+            if (err) {
+                console.log(err);
+                callback(err,{code: 500, status: "Error in a database query"})
+                return;
+            } 
+            callback(false, {code: 200, status:"ok", data: results})
+        })
+       
+    })
+}
