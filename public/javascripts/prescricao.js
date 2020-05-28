@@ -126,7 +126,6 @@ function atualizarTabela(id)
 
 }
 
-
 function preencherTabela1(id)
 {
 $.ajax({

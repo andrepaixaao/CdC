@@ -6,7 +6,6 @@ var SintomasTarefasPatologia = [];
 var dadosProcedimento = [];
 var procedimento=[];
 
-
 $(document).ready(function () {
   preencherSintomas();
   preencherTarefas();
@@ -14,9 +13,13 @@ $(document).ready(function () {
   preencherHabilitacao();
   preencherLocalidade();
   preencherSetor();
-  preencherFuncao();
   sintomasSetAutoComplete();
   tarefasSetAutoComplete();
+  $('table').on('click', 'img', function(e){
+    $(this).closest('tr').remove()
+  
+ })
+
 
 
 
@@ -102,7 +105,7 @@ $(document).ready(function () {
         }
         SintomasTarefasPatologia.push(this.value);
         var x = document.createElement("Chips");
-        x.innerHTML = terms + "<span class='closebtn' onClick=this.parentElement.style.display='none'>x</span>";
+        x.innerHTML = terms + "<span class='closebtn' onClick=this.parentElement.style.display='none';removerIntroduzido('"+encodeURIComponent(this.value)+"')>x</span>";
         document.getElementById("areaTarefas").appendChild(x);
         this.value = "";
         return false;
@@ -123,7 +126,7 @@ $(document).ready(function () {
           }
           SintomasTarefasPatologia.push(this.value);
           var x = document.createElement("Chips");
-          x.innerHTML = terms + "<span class='closebtn' onClick=this.parentElement.style.display='none'>x</span>";
+          x.innerHTML = terms + "<span class='closebtn' onClick=this.parentElement.style.display='none';removerIntroduzido('"+encodeURIComponent(this.value)+"')>x</span>";
           document.getElementById("areaSintomas").appendChild(x);
           this.value = "";
           return false;
@@ -135,9 +138,9 @@ $(document).ready(function () {
 function addLinha() {
   if (contPat != 0) {
     var x = document.getElementById("patEscolhidas");
-    if (x.innerHTML.indexOf("<tr><td></td><td></td><td></td></tr>") != -1) { }
+    if (x.innerHTML.indexOf("<tr><td></td><td></td><td></td><td></td></tr>") != -1) { }
     else {
-      x.innerHTML += "<tr><td></td><td></td><td></td></tr>";
+      x.innerHTML += "<tr><td></td><td></td><td></td><td></td></tr>";
     }
   }
 }
@@ -248,6 +251,7 @@ function preencherLocalidade() {
   });
 }
 function preencherSetor() {
+    
   var comboSetor = document.getElementById('setorAtividade');
   $.ajax({
     url: "/GetSetorAtividade",
@@ -274,10 +278,15 @@ function preencherSetor() {
 
   });
 }
+
+
 function preencherFuncao() {
+  console.log(document.getElementById("setorAtividade").options[setorAtividade.selectedIndex].innerHTML);
+  document.getElementById('Funcao').length=0;
+  var escolhido= document.getElementById("setorAtividade").options[setorAtividade.selectedIndex].innerHTML;
   var comboFuncao = document.getElementById('Funcao');
   $.ajax({
-    url: "/GetFuncao",
+    url: "/GetFuncao/"+escolhido,
     method: "get",
     // sending in json
     contentType: "application/json",
@@ -401,7 +410,7 @@ function adicionarPat(patEscolhida) {
     SintomasTarefasPatologia.push(patEscolhida);
     availableSintomas = [];
     availableTarefas = [];
-    document.getElementById("PatologiaId").remove(document.getElementById("PatologiaId").selectedIndex);
+    $("#PatologiaId option[value=" + patEscolhida + "]").hide();
     $.ajax({
       url: "/GetSintoma/" + patEscolhida,
       method: "get",
@@ -412,7 +421,7 @@ function adicionarPat(patEscolhida) {
       success: function (res, status, jqXHR) {
         for (i in res) {
           var x = document.getElementById("patEscolhidas");
-          x.innerHTML += "<tr><td>" + res[i].nomePatologia + "</td><td>" + res[i].descricaoPatologia + "</td><td>" + res[i].referenciaPatologia + "</td></tr>";
+          x.innerHTML += "<tr><td>" + res[i].nomePatologia + "</td><td>" + res[i].descricaoPatologia + "</td><td>" + res[i].referenciaPatologia + "</td><td id=lixo ><img onclick=apagar("+patEscolhida+") src='images/lixo.png'></td></tr>";
           console.log(res);
         }
 
@@ -430,11 +439,10 @@ function adicionarPat(patEscolhida) {
   if (contPat != 0) {
 
     var x = document.getElementById("patEscolhidas");
-    if (x.innerHTML.indexOf("<tr><td></td><td></td><td></td></tr>") != -1) {
+    if (x.innerHTML.indexOf("<tr><td></td><td></td><td></td><td></td></tr>") != -1) {
       patologiaEscolhida.push(patEscolhida);
       SintomasTarefasPatologia.push(patEscolhida);
-      document.getElementById("PatologiaId").remove(document.getElementById("PatologiaId").selectedIndex);
-
+    $("#PatologiaId option[value=" + patEscolhida + "]").hide();
       contPat++;
       $.ajax({
 
@@ -444,12 +452,12 @@ function adicionarPat(patEscolhida) {
         contentType: "application/json",
         // receiving in json
         dataType: "json",
-
+        
         success: function (res, status, jqXHR) {
           for (i in res) {
 
             x.deleteRow(contPat);
-            x.innerHTML += "<tr><td>" + res[i].nomePatologia + "</td><td>" + res[i].descricaoPatologia + "</td><td>" + res[i].referenciaPatologia + "</td></tr>";
+            x.innerHTML += "<tr><td>" + res[i].nomePatologia + "</td><td>" + res[i].descricaoPatologia + "</td><td>" + res[i].referenciaPatologia + "</td><td id=lixo ><img onclick=apagar("+patEscolhida+") src='images/lixo.png'></td></tr>";
             console.log(res);
 
           }
@@ -640,11 +648,7 @@ function determinarPOP() {
   
   
 }
-   
-      
-        
-
-       
+          
 function abrirMembros() {
   $('.hover_bkgr_fricc').show();
 
@@ -733,7 +737,7 @@ function sintomasSetAutoComplete() {
       terms.push(ui.item.value);
       // add placeholder to get the comma-and-space at the end
       var x = document.createElement("Chips");
-      x.innerHTML = terms + "<span class='closebtn' onClick=this.parentElement.style.display='none'>x</span>";
+      x.innerHTML = terms + "<span class='closebtn' onClick=this.parentElement.style.display='none';removerIntroduzido('"+encodeURIComponent(ui.item.value)+"')>x</span>";
       document.getElementById("areaSintomas").appendChild(x);
       return false;
     }
@@ -761,7 +765,7 @@ function tarefasSetAutoComplete() {
       terms.push(ui.item.value);
       // add placeholder to get the comma-and-space at the end
       var x = document.createElement("Chips");
-      x.innerHTML = terms + "<span class='closebtn' onClick=this.parentElement.style.display='none'>x</span>";
+      x.innerHTML = terms + "<span class='closebtn' onClick=this.parentElement.style.display='none';removerIntroduzido('"+encodeURIComponent(ui.item.value)+"')>x</span>";
       document.getElementById("areaTarefas").appendChild(x);
       return false;
     }
@@ -772,4 +776,21 @@ function split(val) {
 }
 function extractLast(term) {
   return split(term).pop();
+}
+
+function removerIntroduzido(valor)
+{
+  var ValorCerto=decodeURIComponent(valor);
+  //this.parent.style.display='none';
+  SintomasTarefasPatologia.splice(SintomasTarefasPatologia.indexOf(ValorCerto),1);
+  console.log(SintomasTarefasPatologia);
+}
+
+
+function apagar(value)
+{
+  contPat--;
+  $("#PatologiaId option[value=" + value + "]").show();
+  SintomasTarefasPatologia.splice(SintomasTarefasPatologia.indexOf(value),1);
+
 }

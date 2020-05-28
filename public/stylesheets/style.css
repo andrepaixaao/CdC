@@ -94,6 +94,14 @@ margin:auto;
     float:right;
     
 }
+#lixo
+{
+    text-align:center;
+}
+.Patologia th img
+{
+    text-align:center;
+}
 .Patologia select{
     height:28px;
     width:65%;
@@ -129,8 +137,6 @@ margin:auto;
 {
     width:30%;
     padding:0 0 0 0 ;
-
-
 }
 .tabelaPatologia table #Codigo
 {

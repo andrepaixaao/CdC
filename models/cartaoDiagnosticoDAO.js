@@ -133,7 +133,6 @@ module.exports.getPatologiasProcedimentos=function(patEscolhida,callback,next)
     })
 }
 
-
 module.exports.getColmatacaoPrecoProcedimentos=function(patEscolhida,callback,next)
 {
     pool.getConnection(function(err,conn)
@@ -269,7 +268,7 @@ module.exports.getLocalidade=function(callback,next)
 }
 
 
-module.exports.getFuncao=function(callback,next)
+module.exports.getFuncao=function(escolhido,callback,next)
 {
     pool.getConnection(function(err,conn)
     {
@@ -277,7 +276,7 @@ module.exports.getFuncao=function(callback,next)
         {
             callback(err,{code: 500, status: "Error in the connection to the database"})
         }
-       conn.query("select * from Funcao", function(err, results) {
+       conn.query("select nomeFuncao from Funcao inner join SetorAtividade on SetorAtividade.idSetorAtividade=Funcao.Setor where SetorAtividade.nomeSetorAtividade='"+escolhido+"'", function(err, results) {
             conn.release();
             if (err) {
                 console.log(err);
@@ -353,7 +352,6 @@ module.exports.getPatologia=function(idTipo,callback,next)
     })
 }
 
-
 module.exports.getSintomas=function(callback,next)
 {
     pool.getConnection(function(err,conn)
@@ -375,7 +373,6 @@ module.exports.getSintomas=function(callback,next)
     })
 }
 
-
 module.exports.getTarefas=function(callback,next)
 {
     pool.getConnection(function(err,conn)
@@ -396,7 +393,6 @@ module.exports.getTarefas=function(callback,next)
        
     })
 }
-
 
 module.exports.newSintoma=function(id,callback,next)
 {
@@ -460,8 +456,6 @@ module.exports.getPatologiaEspecifica=function(id,callback,next)
        
     })
 }
-
-
 
 module.exports.getTarefasB=function(id,callback,next)
 {
