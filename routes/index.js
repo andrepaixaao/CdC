@@ -117,9 +117,6 @@ router.get('/NewTarefa/:id', function(req, res, next){
 },next)
 });
 
-
-
-
 router.get('/GetProcedimentosEscolhidos/:id', function(req, res, next){
   cartaoDiagnosticoDAO.getProcedimentosEscolhidos(req.params.id,function(err,result){
     if (err) {
@@ -177,8 +174,63 @@ router.get('/GetSintomasB/:id', function(req, res, next){
 },next)
 });
 
-router.get('/GetProcedimentos', function(req, res, next){
-  cartaoDiagnosticoDAO.getProcedimentos(function(err,result){
+router.get('/GetProcedimentos/:id', function(req, res, next){
+  cartaoDiagnosticoDAO.getProcedimentos(req.params.id,function(err,result){
+    if (err) {
+        res.statusMessage=result.status;
+        res.status(result.code).json(err);
+        return;
+    }
+    res.status(result.code).send(result.data);
+},next)
+});
+
+router.get('/GetSintomasProcedimentos/:id', function(req, res, next){
+  cartaoDiagnosticoDAO.getSintomasProcedimentos(req.params.id,function(err,result){
+    if (err) {
+        res.statusMessage=result.status;
+        res.status(result.code).json(err);
+        return;
+    }
+    // res.status(result.code).send(result.data);
+},next)
+});
+
+router.get('/GetTarefasProcedimentos/:id', function(req, res, next){
+  cartaoDiagnosticoDAO.getTarefasProcedimentos(req.params.id,function(err,result){
+    if (err) {
+        res.statusMessage=result.status;
+        res.status(result.code).json(err);
+        return;
+    }
+    res.status(result.code).send(result.data);
+},next)
+});
+
+router.get('/GetPatologiasProcedimentos/:id', function(req, res, next){
+  cartaoDiagnosticoDAO.getPatologiasProcedimentos(req.params.id,function(err,result){
+    if (err) {
+        res.statusMessage=result.status;
+        res.status(result.code).json(err);
+        return;
+    }
+    res.status(result.code).send(result.data);
+},next)
+});
+
+router.get('/GetColmatacaoPrecoProcedimentos/:id', function(req, res, next){
+  cartaoDiagnosticoDAO.getColmatacaoPrecoProcedimentos(req.params.id,function(err,result){
+    if (err) {
+        res.statusMessage=result.status;
+        res.status(result.code).json(err);
+        return;
+    }
+    res.status(result.code).send(result.data);
+},next)
+});
+
+router.get('/GetNomeProcedimentos/:id', function(req, res, next){
+  cartaoDiagnosticoDAO.getNomeProcedimentos(req.params.id,function(err,result){
     if (err) {
         res.statusMessage=result.status;
         res.status(result.code).json(err);

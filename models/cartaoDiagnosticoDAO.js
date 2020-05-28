@@ -45,7 +45,7 @@ module.exports.getHabilitacao=function(callback,next)
     })
 }
 
-module.exports.getProcedimentos=function(callback,next)
+module.exports.getProcedimentos=function(patEscolhida,callback,next)
 {
     pool.getConnection(function(err,conn)
     {
@@ -53,7 +53,7 @@ module.exports.getProcedimentos=function(callback,next)
         {
             callback(err,{code: 500, status: "Error in the connection to the database"})
         }
-       conn.query("Select idProcedimento,nomeProcedimento, (select SUM(Procedimento_has_Recomendacao.colmatacaoRecomendacao) from Procedimento_has_Recomendacao)+(select SUM(Procedimento_has_Produto.colmatacaoProduto)from Procedimento_has_Produto) as ColmatacaoTotal, (select SUM(Recomendacao.precoRecomendacao) from Recomendacao inner join Procedimento_has_Recomendacao on Procedimento_has_Recomendacao.Recomendacao_idRecomendacao=Recomendacao.idRecomendacao)+(select SUM(Produto.preco) from Produto inner join Procedimento_has_Produto on Procedimento_has_Produto.Produto_idProduto=Produto.idProduto) as PrecoTotal  from Procedimento       ", function(err, results) {
+       conn.query("select Procedimento_idProcedimento,nomeProcedimento from Patologia_has_Procedimento inner join Procedimento on Procedimento.idProcedimento=Patologia_has_Procedimento.Procedimento_idProcedimento where Patologia_idPatologia="+patEscolhida, function(err, results) {
             conn.release();
             if (err) {
                 console.log(err);
@@ -66,6 +66,118 @@ module.exports.getProcedimentos=function(callback,next)
        
     })
 }
+
+module.exports.getSintomasProcedimentos=function(patEscolhida,callback,next)
+{
+    pool.getConnection(function(err,conn)
+    {
+        if(err)
+        {
+            callback(err,{code: 500, status: "Error in the connection to the database"})
+        }
+       conn.query("select idProcedimento,nomeSintoma from ProcedimentoHasSintoma inner join Sintoma on Sintoma.idSintoma=ProcedimentoHasSintoma.idSintoma where ProcedimentoHasSintoma.idProcedimento="+patEscolhida, function(err, results) {
+            conn.release();
+            if (err) {
+                console.log(err);
+                callback(err,{code: 500, status: "Error in a database query"})
+                return;
+            } 
+            console.log(results)
+            callback(false, {code: 200, status:"ok", data: results})
+        })
+       
+    })
+}
+
+module.exports.getTarefasProcedimentos=function(patEscolhida,callback,next)
+{
+    pool.getConnection(function(err,conn)
+    {
+        if(err)
+        {
+            callback(err,{code: 500, status: "Error in the connection to the database"})
+        }
+       conn.query("select idProcedimento,nomeTarefa from ProcedimentoHasTarefa inner join Tarefa on Tarefa.idTarefa=ProcedimentoHasTarefa.idTarefa where ProcedimentoHasTarefa.idProcedimento="+patEscolhida, function(err, results) {
+            conn.release();
+            if (err) {
+                console.log(err);
+                callback(err,{code: 500, status: "Error in a database query"})
+                return;
+            } 
+            console.log(results)
+            callback(false, {code: 200, status:"ok", data: results})
+        })
+       
+    })
+}
+
+module.exports.getPatologiasProcedimentos=function(patEscolhida,callback,next)
+{
+    pool.getConnection(function(err,conn)
+    {
+        if(err)
+        {
+            callback(err,{code: 500, status: "Error in the connection to the database"})
+        }
+       conn.query("SELECT * FROM `Patologia_has_Procedimento` where Procedimento_idProcedimento="+patEscolhida, function(err, results) {
+            conn.release();
+            if (err) {
+                console.log(err);
+                callback(err,{code: 500, status: "Error in a database query"})
+                return;
+            } 
+            console.log(results)
+            callback(false, {code: 200, status:"ok", data: results})
+        })
+       
+    })
+}
+
+
+module.exports.getColmatacaoPrecoProcedimentos=function(patEscolhida,callback,next)
+{
+    pool.getConnection(function(err,conn)
+    {
+        if(err)
+        {
+            callback(err,{code: 500, status: "Error in the connection to the database"})
+        }
+       conn.query("select SUM(Procedimento_has_Recomendacao.colmatacaoRecomendacao)+(select SUM(Procedimento_has_Produto.colmatacaoProduto)from Procedimento_has_Produto where Procedimento_has_Produto.Procedimento_idProcedimento="+patEscolhida+") as ColmatacaoTotal,(select SUM(Recomendacao.precoRecomendacao) from Recomendacao inner join Procedimento_has_Recomendacao on Procedimento_has_Recomendacao.Recomendacao_idRecomendacao=Recomendacao.idRecomendacao where Procedimento_has_Recomendacao.Procedimento_idProcedimento="+patEscolhida+") +(select SUM(Produto.preco) from Produto inner join Procedimento_has_Produto on Procedimento_has_Produto.Produto_idProduto=Produto.idProduto where Procedimento_has_Produto.Procedimento_idProcedimento="+patEscolhida+") as PrecoTotal from Procedimento_has_Recomendacao where Procedimento_has_Recomendacao.Procedimento_idProcedimento="+patEscolhida, function(err, results) {
+            conn.release();
+            if (err) {
+                console.log(err);
+                callback(err,{code: 500, status: "Error in a database query"})
+                return;
+            } 
+            console.log(results)
+            callback(false, {code: 200, status:"ok", data: results})
+        })
+       
+    })
+}
+
+module.exports.getNomeProcedimentos=function(id,callback,next)
+{
+    pool.getConnection(function(err,conn)
+    {
+        if(err)
+        {
+            callback(err,{code: 500, status: "Error in the connection to the database"})
+        }
+       conn.query("Select nomeProcedimento from Procedimento where idProcedimento="+id, function(err, results) {
+            conn.release();
+            if (err) {
+                console.log(err);
+                callback(err,{code: 500, status: "Error in a database query"})
+                return;
+            } 
+            console.log(results)
+            callback(false, {code: 200, status:"ok", data: results})
+        })
+       
+    })
+}
+
 
 module.exports.getProcedimentosEscolhidos=function(procEscolhido,callback,next)
 {
