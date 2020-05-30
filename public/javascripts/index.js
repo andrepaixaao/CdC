@@ -15,6 +15,7 @@ $(document).ready(function () {
   preencherSetor();
   sintomasSetAutoComplete();
   tarefasSetAutoComplete();
+
   $('table').on('click', 'img', function(e){
     $(this).closest('tr').remove()
   
@@ -509,7 +510,8 @@ function determinarPOP() {
           return;
         }
         var a=0;
-        variosProcedimentos();
+        setTimeout(function(){ variosProcedimentos();}, 500);
+
         function variosProcedimentos() { // usar uma funcao recursiva aqui 
         
           // obter sintomas do procedimento
@@ -653,7 +655,7 @@ function determinarPOP() {
 }
 i++;
 if(i<patologiaEscolhida.length)
-setTimeout(function(){ recur();}, 300);
+setTimeout(function(){ recur();}, 700);
 
   
   
