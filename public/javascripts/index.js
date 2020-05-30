@@ -487,8 +487,6 @@ function determinarPOP() {
 
   var colm;
   var preco;
-  var nome;
-  var id;
   var i=0;
   tabela.style.display = "block";
   var x = document.getElementById("ListaPOP");
@@ -510,10 +508,9 @@ function determinarPOP() {
           
           return;
         }
-  
-        for (a in res1) {
-          id=res1[a].Procedimento_idProcedimento;
-          nome=res1[a].nomeProcedimento;
+        var a=0;
+        variosProcedimentos();
+        function variosProcedimentos() { // usar uma funcao recursiva aqui 
         
           // obter sintomas do procedimento
           
@@ -602,7 +599,7 @@ function determinarPOP() {
               colm=res5[0].ColmatacaoTotal;
               preco=res5[0].PrecoTotal;
             
-            
+            console.log("aqui");
        
               
             valoresIguais = 0;
@@ -623,10 +620,11 @@ function determinarPOP() {
            colm=0;
            preco=0;
            dadosProcedimento=[];
-           i++;
-           if(i<patologiaEscolhida.length)
-           recur();
-        
+           a++;
+           if(a<res1.length)
+           variosProcedimentos();
+
+          
       
   
 
@@ -648,10 +646,15 @@ function determinarPOP() {
 , error: function () { alert(JSON.stringify('error')); }
 });
 }
+
       
       }
     });
 }
+i++;
+if(i<patologiaEscolhida.length)
+setTimeout(function(){ recur();}, 300);
+
   
   
 }
@@ -829,7 +832,7 @@ function apagar(value)
 
       for (i in res) {
         console.log(res);
-        availableTarefas.splice(availableTarefas.indexOf(res[i].nomeTarefa),1);
+        availableTarefas.splice(availableTarefas.indexOf(res[i].nomeTarefa));
         console.log(availableTarefas);
 
       }
