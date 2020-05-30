@@ -486,7 +486,7 @@ module.exports.getSintomasB=function(id,callback,next)
         {
             callback(err,{code: 500, status: "Error in the connection to the database"})
         }
-       conn.query("Select * from Sintoma inner JOIN ProcedimentoHasSintoma on ProcedimentoHasSintoma.idSintoma=Sintoma.idSintoma inner join Patologia_has_Procedimento on Patologia_has_Procedimento.Procedimento_idProcedimento=ProcedimentoHasSintoma.idProcedimento where Patologia_has_Procedimento.Patologia_idPatologia="+id, function(err, results) {
+       conn.query("Select DISTINCT(nomeSintoma) from Sintoma inner JOIN ProcedimentoHasSintoma on ProcedimentoHasSintoma.idSintoma=Sintoma.idSintoma inner join Patologia_has_Procedimento on Patologia_has_Procedimento.Procedimento_idProcedimento=ProcedimentoHasSintoma.idProcedimento where Patologia_has_Procedimento.Patologia_idPatologia="+id, function(err, results) {
             conn.release();
             if (err) {
                 console.log(err);

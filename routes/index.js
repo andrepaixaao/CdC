@@ -185,7 +185,7 @@ router.get('/GetSintomasProcedimentos/:id', function(req, res, next){
         res.status(result.code).json(err);
         return;
     }
-    // res.status(result.code).send(result.data);
+     res.status(result.code).send(result.data);
 },next)
 });
 

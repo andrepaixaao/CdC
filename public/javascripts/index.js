@@ -103,9 +103,10 @@ $(document).ready(function () {
         if (checkT == false) {
           addPalavraTarefa(this.value);
         }
+        availableTarefas.splice(availableTarefas.indexOf(this.value),1);
         SintomasTarefasPatologia.push(this.value);
         var x = document.createElement("Chips");
-        x.innerHTML = terms + "<span class='closebtn' onClick=this.parentElement.style.display='none';removerIntroduzido('"+encodeURIComponent(this.value)+"')>x</span>";
+        x.innerHTML = terms + "<span class='closebtn' onClick=this.parentElement.style.display='none';readdT('"+encodeURIComponent(this.value)+"');removerIntroduzido('"+encodeURIComponent(this.value)+"')>x</span>";
         document.getElementById("areaTarefas").appendChild(x);
         this.value = "";
         return false;
@@ -125,8 +126,9 @@ $(document).ready(function () {
             addPalavraSintoma(this.value);
           }
           SintomasTarefasPatologia.push(this.value);
+          availableSintomas.splice(availableSintomas.indexOf(this.value),1);
           var x = document.createElement("Chips");
-          x.innerHTML = terms + "<span class='closebtn' onClick=this.parentElement.style.display='none';removerIntroduzido('"+encodeURIComponent(this.value)+"')>x</span>";
+          x.innerHTML = terms + "<span class='closebtn' onClick=this.parentElement.style.display='none';readdS('"+encodeURIComponent(this.value)+"');removerIntroduzido('"+encodeURIComponent(this.value)+"')>x</span>";
           document.getElementById("areaSintomas").appendChild(x);
           this.value = "";
           return false;
@@ -509,9 +511,10 @@ function determinarPOP() {
         for (a in res1) {
           id=res1[a].Procedimento_idProcedimento;
           nome=res1[a].nomeProcedimento;
+        
           // obter sintomas do procedimento
           
-          $.ajax({
+         $.ajax({
             url: "/GetSintomasProcedimentos/" + res1[a].Procedimento_idProcedimento,
             method: "get",
             // sending in json
@@ -524,12 +527,13 @@ function determinarPOP() {
                 console.log(JSON.stringify(res2));
                 return;
               }
-              console.log(res2);
+              console.log("lista sintomas"+res2);
 
               for (b in res2) {
+                
                 dadosProcedimento.push(res2[b].nomeSintoma);
               }
-            
+            console.log("Passou para aqui");
 
           // terminou de obter os sintomas
           // obter as tarefas do procedimento
@@ -732,12 +736,13 @@ function sintomasSetAutoComplete() {
       var terms = split(this.value);
       // remove the current input
       SintomasTarefasPatologia.push(ui.item.value);
+      availableSintomas.splice(availableSintomas.indexOf(ui.item.value),1);
       terms.pop();
       // add the selected item
       terms.push(ui.item.value);
       // add placeholder to get the comma-and-space at the end
       var x = document.createElement("Chips");
-      x.innerHTML = terms + "<span class='closebtn' onClick=this.parentElement.style.display='none';removerIntroduzido('"+encodeURIComponent(ui.item.value)+"')>x</span>";
+      x.innerHTML = terms + "<span class='closebtn' onClick=this.parentElement.style.display='none';readdS('"+encodeURIComponent(ui.item.value)+"');removerIntroduzido('"+encodeURIComponent(ui.item.value)+"')>x</span>";
       document.getElementById("areaSintomas").appendChild(x);
       return false;
     }
@@ -759,13 +764,13 @@ function tarefasSetAutoComplete() {
       var terms = split(this.value);
       // remove the current input
       SintomasTarefasPatologia.push(ui.item.value);
-
+      availableTarefas.splice(availableTarefas.indexOf(ui.item.value),1);
       terms.pop();
       // add the selected item
       terms.push(ui.item.value);
       // add placeholder to get the comma-and-space at the end
       var x = document.createElement("Chips");
-      x.innerHTML = terms + "<span class='closebtn' onClick=this.parentElement.style.display='none';removerIntroduzido('"+encodeURIComponent(ui.item.value)+"')>x</span>";
+      x.innerHTML = terms + "<span class='closebtn' onClick=this.parentElement.style.display='none';readdT('"+encodeURIComponent(ui.item.value)+"');removerIntroduzido('"+encodeURIComponent(ui.item.value)+"')>x</span>";
       document.getElementById("areaTarefas").appendChild(x);
       return false;
     }
@@ -781,6 +786,7 @@ function extractLast(term) {
 function removerIntroduzido(valor)
 {
   var ValorCerto=decodeURIComponent(valor);
+
   //this.parent.style.display='none';
   SintomasTarefasPatologia.splice(SintomasTarefasPatologia.indexOf(ValorCerto),1);
   console.log(SintomasTarefasPatologia);
@@ -793,4 +799,17 @@ function apagar(value)
   $("#PatologiaId option[value=" + value + "]").show();
   SintomasTarefasPatologia.splice(SintomasTarefasPatologia.indexOf(value),1);
 
+}
+
+
+function readdS(value)
+{
+  availableSintomas.push(decodeURIComponent(value));
+}
+
+
+
+function readdT(value)
+{
+  availableTarefas.push(decodeURIComponent(value));
 }
