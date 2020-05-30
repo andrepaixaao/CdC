@@ -834,7 +834,7 @@ function apagar(value)
 
       for (i in res) {
         console.log(res);
-        availableTarefas.splice(availableTarefas.indexOf(res[i].nomeTarefa));
+        availableTarefas.splice(availableTarefas.indexOf(res[i].nomeTarefa),1);
         console.log(availableTarefas);
 
       }
@@ -842,6 +842,11 @@ function apagar(value)
     }
 
     , error: function () { alert(JSON.stringify('error')); }
+
+
+
+
+
 
   });
 
