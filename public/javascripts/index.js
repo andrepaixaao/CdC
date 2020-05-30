@@ -38,9 +38,9 @@ $(document).ready(function () {
     // receiving in json
     dataType: "json",
     success: function (res, status, jqXHR) {
-      console.log(status);
+      
       if (res.err) {
-        console.log(JSON.stringify(res));
+        
         return;
       }
 
@@ -53,9 +53,9 @@ $(document).ready(function () {
           // receiving in json
           dataType: "json",
           success: function (resp, status, jqXHR) {
-            console.log(status);
+            
             if (resp.err) {
-              console.log(JSON.stringify(resp));
+              
               return;
             }
             comboPatologia.innerHTML += "<optgroup label='" + res[contT].nomeTipoPatologia + "'>";
@@ -95,7 +95,7 @@ $(document).ready(function () {
     // don't navigate away from the field on tab when selecting an item
     .on("keydown", function (event) {
       if (event.key === ";" || event.key == "Enter") {
-        console.log("entrei");
+        
         var terms = split(this.value);
         // remove the current input
         // add the selected item
@@ -117,7 +117,7 @@ $(document).ready(function () {
       // don't navigate away from the field on tab when selecting an item
       .on("keydown", function (event) {
         if (event.key === ";" || event.key == "Enter") {
-          console.log("entrei");
+          
           var terms = split(this.value);
           // remove the current input
           // add the selected item
@@ -178,9 +178,9 @@ function preencherGenero() {
     // receiving in json
     dataType: "json",
     success: function (res, status, jqXHR) {
-      console.log(status);
+      
       if (res.err) {
-        console.log(JSON.stringify(res));
+        
         return;
       }
 
@@ -188,7 +188,7 @@ function preencherGenero() {
         comboGenero.options[i] = new Option(res[i].nomeGenero, i);
         document.getElementById('GeneroComboId').selectedIndex = '-1';
 
-        console.log(res[i])
+        
       }
     }
 
@@ -206,9 +206,9 @@ function preencherHabilitacao() {
     // receiving in json
     dataType: "json",
     success: function (res, status, jqXHR) {
-      console.log(status);
+      
       if (res.err) {
-        console.log(JSON.stringify(res));
+        
         return;
       }
 
@@ -216,7 +216,7 @@ function preencherHabilitacao() {
         comboHabilitacao.options[i] = new Option(res[i].nomeHabilitacao, i);
         document.getElementById('Habilitacoes').selectedIndex = '-1';
 
-        console.log(res[i])
+        
       }
     }
 
@@ -235,9 +235,9 @@ function preencherLocalidade() {
     // receiving in json
     dataType: "json",
     success: function (res, status, jqXHR) {
-      console.log(status);
+      
       if (res.err) {
-        console.log(JSON.stringify(res));
+        
         return;
       }
 
@@ -263,9 +263,9 @@ function preencherSetor() {
     // receiving in json
     dataType: "json",
     success: function (res, status, jqXHR) {
-      console.log(status);
+      
       if (res.err) {
-        console.log(JSON.stringify(res));
+        
         return;
       }
 
@@ -283,7 +283,7 @@ function preencherSetor() {
 
 
 function preencherFuncao() {
-  console.log(document.getElementById("setorAtividade").options[setorAtividade.selectedIndex].innerHTML);
+  
   document.getElementById('Funcao').length=0;
   var escolhido= document.getElementById("setorAtividade").options[setorAtividade.selectedIndex].innerHTML;
   var comboFuncao = document.getElementById('Funcao');
@@ -295,9 +295,9 @@ function preencherFuncao() {
     // receiving in json
     dataType: "json",
     success: function (res, status, jqXHR) {
-      console.log(status);
+      
       if (res.err) {
-        console.log(JSON.stringify(res));
+        
         return;
       }
 
@@ -321,18 +321,18 @@ function preencherSintomas() {
     // receiving in json
     dataType: "json",
     success: function (res, status, jqXHR) {
-      console.log(status);
+      
       if (res.err) {
-        console.log(JSON.stringify(res));
+        
         return;
       }
 
       for (i in res) {
-        console.log(res);
+        
         availableSintomas.push(res[i].nomeSintoma);
 
       }
-      console.log(availableSintomas);
+      
     }
 
     , error: function () { alert(JSON.stringify('error')); }
@@ -348,18 +348,18 @@ function preencherTarefas() {
     // receiving in json
     dataType: "json",
     success: function (res, status, jqXHR) {
-      console.log(status);
+      
       if (res.err) {
-        console.log(JSON.stringify(res));
+        
         return;
       }
 
       for (i in res) {
-        console.log(res);
+        
         availableTarefas.push(res[i].nomeTarefa);
 
       }
-      console.log(availableSintomas);
+      
     }
 
     , error: function () { alert(JSON.stringify('error')); }
@@ -375,7 +375,7 @@ function addPalavraSintoma(sintoma) {
     // receiving in json
     dataType: "json",
     success: function (res, status, jqXHR) {
-      console.log(status);
+      
     }
 
     , error: function () { alert(JSON.stringify('error')); }
@@ -391,7 +391,7 @@ function addPalavraTarefa(tarefa) {
     // receiving in json
     dataType: "json",
     success: function (res, status, jqXHR) {
-      console.log(status);
+      
     }
 
     , error: function () { alert(JSON.stringify('error')); }
@@ -406,7 +406,7 @@ function listarTarefas() {
 
 }
 function adicionarPat(patEscolhida) {
-  console.log(availableSintomas);
+  
   if (contPat == 0) {
     patologiaEscolhida.push(patEscolhida);
     SintomasTarefasPatologia.push(patEscolhida);
@@ -424,7 +424,7 @@ function adicionarPat(patEscolhida) {
         for (i in res) {
           var x = document.getElementById("patEscolhidas");
           x.innerHTML += "<tr><td>" + res[i].nomePatologia + "</td><td>" + res[i].descricaoPatologia + "</td><td>" + res[i].referenciaPatologia + "</td><td id=lixo ><img onclick=apagar("+patEscolhida+") src='images/lixo.png'></td></tr>";
-          console.log(res);
+          
         }
 
       }
@@ -432,7 +432,7 @@ function adicionarPat(patEscolhida) {
       , error: function () { alert(JSON.stringify('error')); }
 
     });
-    console.log("isto metia");
+    
     contPat++;
     preencherSintomasB();
     preencherTarefasB();
@@ -460,7 +460,7 @@ function adicionarPat(patEscolhida) {
 
             x.deleteRow(contPat);
             x.innerHTML += "<tr><td>" + res[i].nomePatologia + "</td><td>" + res[i].descricaoPatologia + "</td><td>" + res[i].referenciaPatologia + "</td><td id=lixo ><img onclick=apagar("+patEscolhida+") src='images/lixo.png'></td></tr>";
-            console.log(res);
+            
 
           }
 
@@ -492,7 +492,7 @@ function determinarPOP() {
   var i=0;
   tabela.style.display = "block";
   var x = document.getElementById("ListaPOP");
-  console.log(patologiaEscolhida);
+  
   recur();
 
     function recur()
@@ -505,9 +505,9 @@ function determinarPOP() {
       // receiving in json
       dataType: "json",
       success: function (res1, status, jqXHR) {
-        console.log(status);
+        
         if (res1.err) {
-          console.log(JSON.stringify(res1));
+          
           return;
         }
   
@@ -525,18 +525,18 @@ function determinarPOP() {
             // receiving in json
             dataType: "json",
             success: function (res2, status, jqXHR) {
-              console.log(status);
+              
               if (res2.err) {
-                console.log(JSON.stringify(res2));
+                
                 return;
               }
-              console.log("lista sintomas"+res2);
+              
 
               for (b in res2) {
                 
                 dadosProcedimento.push(res2[b].nomeSintoma);
               }
-            console.log("Passou para aqui");
+            
 
           // terminou de obter os sintomas
           // obter as tarefas do procedimento
@@ -548,9 +548,9 @@ function determinarPOP() {
           // receiving in json
           dataType: "json",
           success: function (res3, status, jqXHR) {
-            console.log(status);
+            
             if (res3.err) {
-              console.log(JSON.stringify(res3));
+              
               return;
             }
             for (c in res3) {
@@ -570,9 +570,9 @@ function determinarPOP() {
           // receiving in json
           dataType: "json",
           success: function (res4, status, jqXHR) {
-            console.log(status);
+            
             if (res4.err) {
-              console.log(JSON.stringify(res4));
+              
               return;
             }
             for (d in res4) {
@@ -594,9 +594,9 @@ function determinarPOP() {
             // receiving in json
             dataType: "json",
             success: function (res5, status, jqXHR) {
-              console.log(status);
+              
               if (res5.err) {
-                console.log(JSON.stringify(res5));
+                
                 return;
               }
               colm=res5[0].ColmatacaoTotal;
@@ -604,7 +604,7 @@ function determinarPOP() {
             
             
        
-              console.log(dadosProcedimento);
+              
             valoresIguais = 0;
               for (var p = 0; p < SintomasTarefasPatologia.length; p++) {
                 for (var o = 0; o < dadosProcedimento.length; o++) {
@@ -662,7 +662,7 @@ function abrirMembros() {
 }
 
 function fecharPop() {
-  console.log("boas");
+  
   $('.hover_bkgr_fricc').hide();
 }
 function preencherSintomasB() {
@@ -674,18 +674,18 @@ function preencherSintomasB() {
     // receiving in json
     dataType: "json",
     success: function (res, status, jqXHR) {
-      console.log(status);
+      
       if (res.err) {
-        console.log(JSON.stringify(res));
+        
         return;
       }
 
       for (i in res) {
-        console.log(res);
+        
         availableSintomas.push(res[i].nomeSintoma);
 
       }
-      console.log(availableSintomas);
+      
     }
 
     , error: function () { alert(JSON.stringify('error')); }
@@ -703,18 +703,18 @@ function preencherTarefasB() {
     // receiving in json
     dataType: "json",
     success: function (res, status, jqXHR) {
-      console.log(status);
+      
       if (res.err) {
-        console.log(JSON.stringify(res));
+        
         return;
       }
 
       for (i in res) {
-        console.log(res);
+        
         availableTarefas.push(res[i].nomeTarefa);
 
       }
-      console.log(availableSintomas);
+      
     }
 
     , error: function () { alert(JSON.stringify('error')); }
@@ -792,7 +792,7 @@ function removerIntroduzido(valor)
 
   //this.parent.style.display='none';
   SintomasTarefasPatologia.splice(SintomasTarefasPatologia.indexOf(ValorCerto),1);
-  console.log(SintomasTarefasPatologia);
+  
 }
 
 
@@ -802,8 +802,9 @@ function apagar(value)
   $("#PatologiaId option[value=" + value + "]").show();
   SintomasTarefasPatologia.splice(SintomasTarefasPatologia.indexOf(value),1);
   patologiaEscolhida.splice(patologiaEscolhida.indexOf(value),1);
-  console.log(SintomasTarefasPatologia);
-  console.log(patologiaEscolhida);
+  console.log(availableSintomas);
+  console.log(availableTarefas);
+
 
   if(contPat==0)
   {
@@ -820,18 +821,19 @@ function apagar(value)
     // receiving in json
     dataType: "json",
     success: function (res, status, jqXHR) {
-      console.log(status);
+      
       if (res.err) {
-        console.log(JSON.stringify(res));
+        
         return;
       }
 
       for (i in res) {
         console.log(res);
-        availableTarefas.splice(availableTarefas.indexOf(res[i].nomeTarefa));
+        availableTarefas.splice(availableTarefas.indexOf(res[i].nomeTarefa),1);
+        console.log(availableTarefas);
 
       }
-      console.log(availableSintomas);
+      
     }
 
     , error: function () { alert(JSON.stringify('error')); }
@@ -846,18 +848,18 @@ function apagar(value)
     // receiving in json
     dataType: "json",
     success: function (res, status, jqXHR) {
-      console.log(status);
+      
       if (res.err) {
-        console.log(JSON.stringify(res));
+        
         return;
       }
 
       for (i in res) {
-        console.log(res);
-        availableSintomas.splice(availableSintomas.indexOf(res[i].nomeSintoma));
+        
+        availableSintomas.splice(availableSintomas.indexOf(res[i].nomeSintoma),1);
 
       }
-      console.log(availableSintomas);
+      
     }
 
     , error: function () { alert(JSON.stringify('error')); }
