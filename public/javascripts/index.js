@@ -482,6 +482,9 @@ function determinarPOP() {
   var percentagem;
   var valoresIguais;
   var tabela = document.getElementById("POP");
+
+  $("#POP tr:gt(0)").remove();
+
   var colm;
   var preco;
   var nome;
@@ -798,8 +801,74 @@ function apagar(value)
   contPat--;
   $("#PatologiaId option[value=" + value + "]").show();
   SintomasTarefasPatologia.splice(SintomasTarefasPatologia.indexOf(value),1);
+  patologiaEscolhida.splice(patologiaEscolhida.indexOf(value),1);
+  console.log(SintomasTarefasPatologia);
+  console.log(patologiaEscolhida);
 
+  if(contPat==0)
+  {
+    preencherTarefas();
+    preencherSintomas();
+  }
+  else
+  {
+  $.ajax({
+    url: "/GetTarefasB/" + value,
+    method: "get",
+    // sending in json
+    contentType: "application/json",
+    // receiving in json
+    dataType: "json",
+    success: function (res, status, jqXHR) {
+      console.log(status);
+      if (res.err) {
+        console.log(JSON.stringify(res));
+        return;
+      }
+
+      for (i in res) {
+        console.log(res);
+        availableTarefas.splice(availableTarefas.indexOf(res[i].nomeTarefa));
+
+      }
+      console.log(availableSintomas);
+    }
+
+    , error: function () { alert(JSON.stringify('error')); }
+
+  });
+
+  $.ajax({
+    url: "/GetSintomasB/" + value,
+    method: "get",
+    // sending in json
+    contentType: "application/json",
+    // receiving in json
+    dataType: "json",
+    success: function (res, status, jqXHR) {
+      console.log(status);
+      if (res.err) {
+        console.log(JSON.stringify(res));
+        return;
+      }
+
+      for (i in res) {
+        console.log(res);
+        availableSintomas.splice(availableSintomas.indexOf(res[i].nomeSintoma));
+
+      }
+      console.log(availableSintomas);
+    }
+
+    , error: function () { alert(JSON.stringify('error')); }
+
+  });
 }
+  tarefasSetAutoComplete();
+  sintomasSetAutoComplete();
+}
+
+
 
 
 function readdS(value)
