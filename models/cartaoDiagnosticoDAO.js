@@ -360,7 +360,7 @@ module.exports.getSintomas=function(callback,next)
         {
             callback(err,{code: 500, status: "Error in the connection to the database"})
         }
-       conn.query("select * from Sintoma", function(err, results) {
+       conn.query("select DISTINCT(nomeSintoma)  from Sintoma", function(err, results) {
             conn.release();
             if (err) {
                 console.log(err);
@@ -381,7 +381,7 @@ module.exports.getTarefas=function(callback,next)
         {
             callback(err,{code: 500, status: "Error in the connection to the database"})
         }
-       conn.query("select * from Tarefa", function(err, results) {
+       conn.query("select DISTINCT(nomeTarefa) from Tarefa", function(err, results) {
             conn.release();
             if (err) {
                 console.log(err);
