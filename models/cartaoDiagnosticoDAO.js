@@ -465,7 +465,7 @@ module.exports.getTarefasB=function(id,callback,next)
         {
             callback(err,{code: 500, status: "Error in the connection to the database"})
         }
-       conn.query("Select * from Tarefa inner join ProcedimentoHasTarefa on ProcedimentoHasTarefa.idTarefa=Tarefa.idTarefa inner join Patologia_has_Procedimento on Patologia_has_Procedimento.Procedimento_idProcedimento=ProcedimentoHasTarefa.idProcedimento where Patologia_has_Procedimento.Patologia_idPatologia="+id, function(err, results) {
+       conn.query("Select DISTINCT(nomeTarefa) from Tarefa inner join ProcedimentoHasTarefa on ProcedimentoHasTarefa.idTarefa=Tarefa.idTarefa inner join Patologia_has_Procedimento on Patologia_has_Procedimento.Procedimento_idProcedimento=ProcedimentoHasTarefa.idProcedimento where Patologia_has_Procedimento.Patologia_idPatologia="+id, function(err, results) {
             conn.release();
             if (err) {
                 console.log(err);
