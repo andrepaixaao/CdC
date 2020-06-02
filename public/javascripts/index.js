@@ -1,5 +1,7 @@
 var availableTarefas = [];
 var availableSintomas = [];
+var totalTarefas=[];
+var totalSintomas=[];
 var contPat = 0;
 var patologiaEscolhida = [];
 var SintomasTarefasPatologia = [];
@@ -12,8 +14,8 @@ $(document).ready(function () {
   preencherGenero();
   preencherHabilitacao();
   preencherLocalidade();
-  preencherSetor();
-  sintomasSetAutoComplete();
+      preencherSetor();
+      sintomasSetAutoComplete();
   tarefasSetAutoComplete();
 
   $('table').on('click', 'img', function(e){
@@ -107,6 +109,7 @@ $(document).ready(function () {
         availableTarefas.splice(availableTarefas.indexOf(this.value),1);
         SintomasTarefasPatologia.push(this.value);
         var x = document.createElement("Chips");
+        x.setAttribute("id",encodeURIComponent(this.value))
         x.innerHTML = terms + "<span class='closebtn' onClick=this.parentElement.style.display='none';readdT('"+encodeURIComponent(this.value)+"');removerIntroduzido('"+encodeURIComponent(this.value)+"')>x</span>";
         document.getElementById("areaTarefas").appendChild(x);
         this.value = "";
@@ -129,6 +132,7 @@ $(document).ready(function () {
           SintomasTarefasPatologia.push(this.value);
           availableSintomas.splice(availableSintomas.indexOf(this.value),1);
           var x = document.createElement("Chips");
+          x.setAttribute("id",encodeURIComponent(this.value))
           x.innerHTML = terms + "<span class='closebtn' onClick=this.parentElement.style.display='none';readdS('"+encodeURIComponent(this.value)+"');removerIntroduzido('"+encodeURIComponent(this.value)+"')>x</span>";
           document.getElementById("areaSintomas").appendChild(x);
           this.value = "";
@@ -281,7 +285,6 @@ function preencherSetor() {
 
   });
 }
-
 
 function preencherFuncao() {
   
@@ -483,13 +486,14 @@ function determinarPOP() {
   var percentagem;
   var valoresIguais;
   var tabela = document.getElementById("POP");
+  tabela.style.display = "none";
 
   $("#POP tr:gt(0)").remove();
 
   var colm;
   var preco;
   var i=0;
-  tabela.style.display = "block";
+
   var x = document.getElementById("ListaPOP");
   
   recur();
@@ -510,7 +514,8 @@ function determinarPOP() {
           return;
         }
         var a=0;
-        setTimeout(function(){ variosProcedimentos();}, 500);
+        console.log(res1);
+        setTimeout(function(){ variosProcedimentos();}, 50);
 
         function variosProcedimentos() { // usar uma funcao recursiva aqui 
         
@@ -532,7 +537,6 @@ function determinarPOP() {
               
 
               for (b in res2) {
-                
                 dadosProcedimento.push(res2[b].nomeSintoma);
               }
             
@@ -624,17 +628,26 @@ function determinarPOP() {
            dadosProcedimento=[];
            a++;
            if(a<res1.length)
-           variosProcedimentos();
-
-          
-      
-  
-
-
+           {
+           
+           setTimeout(function(){ variosProcedimentos();}, 50);
+           }
+           else
+           {
+            console.log(patologiaEscolhida.length);
+            console.log(i);
+            if(i<patologiaEscolhida.length-1)
+            {
+              console.log("entrou");
+              i++;
+            setTimeout(function(){ recur();}, 50);
+            }
+            else
+            {
+              tabela.style.display = "block";
+            }
+           }
        
-          
-       
-
         }
         , error: function () { alert(JSON.stringify('error')); }
       });
@@ -653,11 +666,9 @@ function determinarPOP() {
       }
     });
 }
-i++;
-if(i<patologiaEscolhida.length)
-setTimeout(function(){ recur();}, 700);
 
-  
+
+
   
 }
           
@@ -690,6 +701,8 @@ function preencherSintomasB() {
         availableSintomas.push(res[i].nomeSintoma);
 
       }
+      totalSintomas=availableSintomas;
+
       
     }
 
@@ -719,6 +732,7 @@ function preencherTarefasB() {
         availableTarefas.push(res[i].nomeTarefa);
 
       }
+      totalTarefas=availableTarefas;
       
     }
 
@@ -750,6 +764,7 @@ function sintomasSetAutoComplete() {
       terms.push(ui.item.value);
       // add placeholder to get the comma-and-space at the end
       var x = document.createElement("Chips");
+      x.setAttribute("id",encodeURIComponent(ui.item.value))
       x.innerHTML = terms + "<span class='closebtn' onClick=this.parentElement.style.display='none';readdS('"+encodeURIComponent(ui.item.value)+"');removerIntroduzido('"+encodeURIComponent(ui.item.value)+"')>x</span>";
       document.getElementById("areaSintomas").appendChild(x);
       return false;
@@ -778,6 +793,7 @@ function tarefasSetAutoComplete() {
       terms.push(ui.item.value);
       // add placeholder to get the comma-and-space at the end
       var x = document.createElement("Chips");
+      x.setAttribute("id",encodeURIComponent(ui.item.value))
       x.innerHTML = terms + "<span class='closebtn' onClick=this.parentElement.style.display='none';readdT('"+encodeURIComponent(ui.item.value)+"');removerIntroduzido('"+encodeURIComponent(ui.item.value)+"')>x</span>";
       document.getElementById("areaTarefas").appendChild(x);
       return false;
@@ -794,12 +810,10 @@ function extractLast(term) {
 function removerIntroduzido(valor)
 {
   var ValorCerto=decodeURIComponent(valor);
-
   //this.parent.style.display='none';
   SintomasTarefasPatologia.splice(SintomasTarefasPatologia.indexOf(ValorCerto),1);
   
 }
-
 
 function apagar(value)
 {
@@ -833,11 +847,10 @@ function apagar(value)
       }
 
       for (i in res) {
-        console.log(res);
         availableTarefas.splice(availableTarefas.indexOf(res[i].nomeTarefa),1);
-        console.log(availableTarefas);
 
       }
+      totalTarefas=availableTarefas;
       
     }
 
@@ -869,6 +882,8 @@ function apagar(value)
         availableSintomas.splice(availableSintomas.indexOf(res[i].nomeSintoma),1);
 
       }
+      totalSintomas=availableSintomas;
+
       
     }
 
@@ -878,19 +893,50 @@ function apagar(value)
 }
   tarefasSetAutoComplete();
   sintomasSetAutoComplete();
+  //atualizarSintomas();
+ // atualizarTarefas();
+ 
+
 }
-
-
-
 
 function readdS(value)
 {
   availableSintomas.push(decodeURIComponent(value));
 }
 
-
-
 function readdT(value)
 {
   availableTarefas.push(decodeURIComponent(value));
+}
+
+
+
+function atualizarTarefas()
+{
+  var divTarefas =$("#areaTarefas").find("chips").map(function() { return this.id; }).get(); 
+    for(var i=0;i<divTarefas.length;i++)
+  {
+    if(!totalTarefas.includes(decodeURIComponent(divTarefas[i])))
+    {
+    removerIntroduzido(divTarefas[i]);
+    document.getElementById(divTarefas[i]).style.display='none';
+    }
+  }
+}
+
+function atualizarSintomas()
+{
+  var divSintomas =$("#areaSintomas").find("chips").map(function() { return this.id; }).get(); 
+  console.log(totalSintomas);
+  console.log(divSintomas);
+  for(var i=0;i<divSintomas.length;i++)
+  {
+    console.log(divSintomas[i]);
+    console.log(availableSintomas);
+    if(!totalSintomas.includes(decodeURIComponent(divSintomas[i])))
+    {
+    removerIntroduzido(divSintomas[i]);
+    document.getElementById(divSintomas[i]).style.display='none';
+    }
+  }
 }

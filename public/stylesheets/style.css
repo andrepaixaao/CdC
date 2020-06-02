@@ -1144,3 +1144,49 @@ box-shadow: -1px 1px 5px 9px rgba(0,0,0,0.75);
     font-weight: bold;
 }
 /* Popup box BEGIN */
+
+.palavrasChave
+{
+    margin-top:1%;
+    font-size:20px;
+    font-family:"Arial";
+    font-weight:bold;
+}
+
+.Forn
+{
+    font-family:"Arial";
+    font-size:20px;
+    font-weight:bold;
+    margin-bottom:22%;
+    
+}
+.Forn img
+{
+    margin-left:1%;
+    vertical-align:bottom;
+}
+
+
+.palavrasChave input[type='text']
+{
+    width:78%;
+    height:20px;
+    background-color:#87afd3;
+}
+.dadosForn
+{
+    display:block;
+}
+.forn
+{
+    margin-top:1%;
+    width:27%;
+    margin-right:5%;
+    float:left;
+    background-color:white;
+    text-align:center;
+    padding:1px 1px;
+    border:4px solid #87afd3;
+}
+ 
