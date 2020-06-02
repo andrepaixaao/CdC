@@ -515,7 +515,7 @@ function determinarPOP() {
         }
         var a=0;
         console.log(res1);
-        setTimeout(function(){ variosProcedimentos();}, 50);
+        setTimeout(function(){ variosProcedimentos();}, 250);
 
         function variosProcedimentos() { // usar uma funcao recursiva aqui 
         
@@ -630,7 +630,7 @@ function determinarPOP() {
            if(a<res1.length)
            {
            
-           setTimeout(function(){ variosProcedimentos();}, 50);
+           setTimeout(function(){ variosProcedimentos();}, 250);
            }
            else
            {
@@ -640,7 +640,7 @@ function determinarPOP() {
             {
               console.log("entrou");
               i++;
-            setTimeout(function(){ recur();}, 50);
+            setTimeout(function(){ recur();}, 250);
             }
             else
             {
