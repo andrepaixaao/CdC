@@ -483,6 +483,29 @@ function adicionarPat(patEscolhida) {
 
 }
 function determinarPOP() {
+
+  
+  $.ajax({
+    url: "/GetGrau/"+patologiaEscolhida[0],
+    method: "get",
+    // sending in json
+    contentType: "application/json",
+    // receiving in json
+    dataType: "json",
+    success: function (res, status, jqXHR) {
+      
+      if (res.err) {
+        
+        return;
+      }
+      document.getElementById("grau").innerHTML="Grau </br>"+res[0].Grau;
+      
+      
+    }
+
+    , error: function () { alert(JSON.stringify('error')); }
+
+  });
   var percentagem;
   var valoresIguais;
   var tabela = document.getElementById("POP");
@@ -893,8 +916,8 @@ function apagar(value)
 }
   tarefasSetAutoComplete();
   sintomasSetAutoComplete();
-  //atualizarSintomas();
- // atualizarTarefas();
+  atualizarSintomas();
+  atualizarTarefas();
  
 
 }
@@ -913,30 +936,52 @@ function readdT(value)
 
 function atualizarTarefas()
 {
+  var tem=0;
   var divTarefas =$("#areaTarefas").find("chips").map(function() { return this.id; }).get(); 
     for(var i=0;i<divTarefas.length;i++)
   {
-    if(!totalTarefas.includes(decodeURIComponent(divTarefas[i])))
+    for(var e=0;e<totalTarefas.length;e++)
+    {
+      if(decodeURIComponent(divTarefas[i])==totalTarefas[e])
+      {
+        tem=1;
+      }
+    }
+    if(tem==0)
     {
     removerIntroduzido(divTarefas[i]);
     document.getElementById(divTarefas[i]).style.display='none';
     }
+    
   }
 }
 
 function atualizarSintomas()
 {
-  var divSintomas =$("#areaSintomas").find("chips").map(function() { return this.id; }).get(); 
   console.log(totalSintomas);
+
+  var tem=0;
+  var divSintomas =$("#areaSintomas").find("chips").map(function() { return this.id; }).get(); 
   console.log(divSintomas);
   for(var i=0;i<divSintomas.length;i++)
   {
+    tem=0;
     console.log(divSintomas[i]);
     console.log(availableSintomas);
-    if(!totalSintomas.includes(decodeURIComponent(divSintomas[i])))
+    for(var e=0;e<totalSintomas.length;e++)
     {
-    removerIntroduzido(divSintomas[i]);
-    document.getElementById(divSintomas[i]).style.display='none';
+      if(decodeURIComponent(divSintomas[i])==totalSintomas[e])
+      {
+        tem=1;
+      }
+    
     }
+    if(tem==0)
+  {
+    removerIntroduzido(divSintomas[i]);
+    document.getElementById(divSintomas[i]).style.display='none';    
+
+  }
+  
   }
 }

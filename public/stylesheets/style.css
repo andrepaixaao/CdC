@@ -581,6 +581,7 @@ chips .closebtn:hover {
     margin-left:18%;
     margin-right:12%;
     width:70%;
+    overflow-x:auto;
   }
 
 
@@ -1192,3 +1193,205 @@ box-shadow: -1px 1px 5px 9px rgba(0,0,0,0.75);
     font-weight: normal;
 }
  
+.loader
+{
+    display:none;
+}
+
+
+.confPat
+{
+    font-family:"Arial";
+    font-size:20px;
+    font-weight:bold;
+    
+}
+
+.tableConf
+{
+    width:100%;
+}
+
+.tabelaConf
+{
+    width:100%;
+}
+
+.tabelaConf
+{
+    
+        margin-top: 1%;
+        font-family: Arial;
+        font-size: 14px;
+        border-spacing: 0;
+        overflow-y: auto;
+
+}
+
+
+.tableConf table th{
+    padding-top: 3px;
+    padding-bottom: 3px;
+     text-align: left;
+     color: white;
+     background-color: darkgrey;
+     border: 1px solid black;
+     text-align:center;
+     font-weight: normal;
+     height:25px;
+ }
+ 
+ .tableConf table td{
+     padding-top: 10px;
+     padding-bottom: 10px;
+     text-align: left;
+     color: black;
+     background-color: white;
+     border:1px solid black;
+  
+ }
+
+ #conflixo
+ {
+     text-align:center;
+ }
+ .tableConf input[type='checkbox']
+ {
+     height:20px;
+ }
+
+ .confListaPop
+ {
+     font-family:"Arial";
+     font-size:20px;
+     font-weight:bold;
+     margin-top:2%;
+     
+ }
+
+.listaProc
+{
+    width:100%;
+}
+
+.tableCPOP
+{
+    width:100%;
+        margin-top: 1%;
+        font-family: Arial;
+        font-size: 14px;
+        border-spacing: 0;
+        overflow-y: auto;
+
+}
+
+.tableCPOP th{
+    padding-top: 3px;
+    padding-bottom: 3px;
+     text-align: left;
+     color: white;
+     background-color: darkgrey;
+     border: 1px solid black;
+     text-align:center;
+     font-weight: normal;
+     height:25px;
+ }
+ .tableCPOP td{
+     padding-top: 10px;
+     padding-bottom: 10px;
+     text-align: left;
+     color: black;
+     background-color: white;
+     border:1px solid black;
+     
+  
+ }
+
+ 
+ .tableCPOP  input[type='checkbox']
+ {
+     height:20px;
+ }
+
+ .tableCPOP input[type='button']
+ {
+
+    text-align:center;
+    font-family:"Arial"; 
+    font-size:14px;
+    background-color:#3C61A5;
+    color:white;
+   
+ }
+ #aceder
+ {
+     text-align:center;
+ }
+
+ .nomepop
+ {
+    font-family:"Arial";
+    font-size:20px;
+    font-weight:bold;
+    margin-top:2%;
+ }
+
+ .nomepop input[type='text']
+ {
+    background-color:#87afd3;
+    font-size:14px;
+    font-family:"Arial";
+    width:30%;
+ }
+
+ .descricaopop 
+ {
+    font-family:"Arial";
+    font-size:20px;
+    font-weight:bold;
+    margin-top:2%;
+ }
+
+ .descricaopop .areadescricao
+ {
+    background-color:#87afd3;
+    font-size:16px;
+    font-family:"Arial";
+    margin-top:1%;
+    width:99%;
+    height:70px;
+   
+ }
+
+ .palavraschave 
+ {
+    font-family:"Arial";
+    font-size:20px;
+    font-weight:bold;
+    margin-top:2%;
+ }
+
+ .tipoPatologia
+ {
+    font-family:"Arial";
+    font-size:20px;
+    font-weight:bold;
+    margin-top:2%;  
+ }
+
+ .tipoPatologia select
+ {
+    height:24px;
+    width:30%;
+    font-size:16px;
+    background-color:#87afd3;
+    font-weight: normal;
+    color:white;
+ }
+
+ .tipoPatologia img
+ {
+    height: 24px;
+    vertical-align:bottom;
+    margin-left:4px;
+ }

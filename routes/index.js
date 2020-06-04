@@ -189,6 +189,28 @@ router.get('/GetSintomasProcedimentos/:id', function(req, res, next){
 },next)
 });
 
+router.get('/GetDP/:id', function(req, res, next){
+  cartaoDiagnosticoDAO.getDP(req.params.id,function(err,result){
+    if (err) {
+        res.statusMessage=result.status;
+        res.status(result.code).json(err);
+        return;
+    }
+     res.status(result.code).send(result.data);
+},next)
+});
+
+router.get('/GetGrau/:id', function(req, res, next){
+  cartaoDiagnosticoDAO.getGrau(req.params.id,function(err,result){
+    if (err) {
+        res.statusMessage=result.status;
+        res.status(result.code).json(err);
+        return;
+    }
+     res.status(result.code).send(result.data);
+},next)
+});
+
 router.get('/GetTarefasProcedimentos/:id', function(req, res, next){
   cartaoDiagnosticoDAO.getTarefasProcedimentos(req.params.id,function(err,result){
     if (err) {

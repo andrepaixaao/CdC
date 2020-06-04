@@ -28,6 +28,7 @@ preencherTabela1(ids[ids.length-1]);
 preencherTabela2(ids[ids.length-1]);
             preencherComboBox();
 })
+
 function somarProd(id,preco,colmatacao)
 {
     if ($('#P'+id).is(':checked'))
@@ -123,11 +124,33 @@ function atualizarTabela(id)
         colm2.innerHTML="Σ %";
         var colp2=document.getElementById("precoCimaR");
         colp2.innerHTML="Σ €";
+       precoTotalProduto=0;
+colmatacaoTotalProduto=0;
+precoTotalRecomendacao=0;
+colmatacaoTotalRecomendacao=0;
 
 }
 
 function preencherTabela1(id)
 {
+
+  $.ajax({
+    url: "/GetDP/"+ id,
+    method:"get",
+    // sending in json
+    contentType:"application/json",
+    // receiving in json
+    dataType:"json",
+    success: function(res,status,jqXHR) {
+      document.getElementById("DP").innerHTML="<b> D&P %<br></b>"+res[0].DP+"</b>";
+
+      
+    }
+    
+    , error : function() { alert(JSON.stringify('error')); }
+    
+    });
+
 $.ajax({
     url: "/GetProdutosProcedimentos/"+ id,
     method:"get",

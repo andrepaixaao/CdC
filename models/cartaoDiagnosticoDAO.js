@@ -498,3 +498,45 @@ module.exports.getSintomasB=function(id,callback,next)
        
     })
 }
+
+module.exports.getGrau=function(id,callback,next)
+{
+    pool.getConnection(function(err,conn)
+    {
+        if(err)
+        {
+            callback(err,{code: 500, status: "Error in the connection to the database"})
+        }
+       conn.query("SELECT Grau FROM Patologia WHERE idPatologia="+id, function(err, results) {
+            conn.release();
+            if (err) {
+                console.log(err);
+                callback(err,{code: 500, status: "Error in a database query"})
+                return;
+            } 
+            callback(false, {code: 200, status:"ok", data: results})
+        })
+       
+    })
+}
+
+module.exports.getDP=function(id,callback,next)
+{
+    pool.getConnection(function(err,conn)
+    {
+        if(err)
+        {
+            callback(err,{code: 500, status: "Error in the connection to the database"})
+        }
+       conn.query("SELECT DP FROM Procedimento where idProcedimento="+id, function(err, results) {
+            conn.release();
+            if (err) {
+                console.log(err);
+                callback(err,{code: 500, status: "Error in a database query"})
+                return;
+            } 
+            callback(false, {code: 200, status:"ok", data: results})
+        })
+       
+    })
+}

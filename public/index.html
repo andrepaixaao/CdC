@@ -122,8 +122,8 @@
         <div class="POP" id="POP">
             
         Lista de Procedimentos Operacionais Padrão    
-        <div class="grau">
-           <b> Grau: 50-95% Grave
+        <div class="grau" id="grau">
+           
         </div>
             <div class="tabelaPOP">
 
@@ -152,7 +152,17 @@
                     Novo Membro
                 </div >
                 <div class="dadosPop">Tipo de Entidade <img src="images/adicionar.png"><br>
-                    <select id="EntidadeId"></select>
+                    <select id="EntidadeId">
+                    <option>
+                        Fornecedores
+                    </option>
+                    <option>
+                        Associações
+                    </option>
+                    <option>
+                        Prescritores/Avaliadores
+                    </option>
+                </select>
                 </div>
                 <div class="nomesPop">Nome <br>
                     <input type="text" id="nomePop">
@@ -174,6 +184,8 @@
             </div>
             <input type="button" id="registar" value="Registar">
         </div>
+
+     
 
 
 </div>
