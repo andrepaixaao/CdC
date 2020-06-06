@@ -2,17 +2,23 @@
 <html lang="en">
 <head>
     <title>Configurar Sistema</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" href="stylesheets/style.css">
+    <script src="javascripts/configurarsistema.js"></script>
+
 </head>
 <body>
     <nav class="navbar" >
         <a href="index.html"><img src="images/home.png">Página Inicial</a>
-        <a href="candidatura.html"><img src="images/candidatura.png">Candidatura Membro</a>
+        <a onClick="abrirMembros()"><img src="images/candidatura.png">Candidatura Membro</a>
         <a href="prescritores.html"><img src="images/prescritores.png">Prescritores</a>
         <a href="associacoes.html"><img src="images/associacoes.png">Associações</a>
         <a href="fornecedores.html"><img src="images/fornecedores.png">Fornecedores</a>
         <a href="configurarpop.html"><img src="images/configurarpop.png">Configurar POP</a>
         <a class="navactive" href="configurarsistema.html"><img src="images/configurarsis.png">Configurar Sistema</a>
+        
       </nav>
       <div class=contentP>
         <div class=confPat>
@@ -216,4 +222,44 @@
         </div> 
  
  </body>
+ <div class="hover_bkgr_fricc">
+    <span class="helper"></span>
+    <div class="pop">
+        <div class="popupCloseButton" onClick="fecharPop()">&times;</div>
+        <div class="tituloPop">
+            Novo Membro
+        </div >
+        <div class="dadosPop">Tipo de Entidade <img src="images/adicionar.png"><br>
+            <select id="EntidadeId">
+            <option>
+                Fornecedores
+            </option>
+            <option>
+                Associações
+            </option>
+            <option>
+                Prescritores/Avaliadores
+            </option>
+        </select>
+        </div>
+        <div class="nomesPop">Nome <br>
+            <input type="text" id="nomePop">
+        </div>
+        <div class="descricaoPop">Descrição<br>
+        <textarea class="areaPop"></textarea>
+        <div class="emailPop">Email 
+            <input type="text" id="nomePop">
+        </div>
+        <div class="contatoPop">Contato Telefónico 
+            <input type="text" id="contatoTextoPop">
+        </div>
+
+        <div class="urlPop">URL do Site
+            <input type="text" id="contatoTextoPop">
+        </div>
+        <input type="button" id="registar" value="Registar">
+    </div>
+    </div>
+    <input type="button" id="registar" value="Registar">
+</div>
 </html>

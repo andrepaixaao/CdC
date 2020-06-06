@@ -152,12 +152,14 @@ function addLinha() {
   }
 }
 function verResultados() {
+  var vazio=0;
   var arrId = [];
   var arrColm=[];
   var arrCusto=[];
   var arrPercentagem=[];
 
   $(':checkbox:checked').each(function () {
+    vazio++;
     arrId.push($(this).closest('tr').attr('id'));
     arrPercentagem.push($(this).closest('tr').attr('percentagem'));
     arrColm.push($(this).closest('tr').attr('colm'))
@@ -169,9 +171,15 @@ function verResultados() {
   localStorage.setItem("ProcedimentosEscolhidos", arrId);
 
 
-
-
+  if(vazio!=0)
+{
   window.location.href = "prescricao.html";
+}
+else
+{
+  alert("Nenhum procedimento selecionado");
+}
+
 }
 function preencherGenero() {
   var comboGenero = document.getElementById('GeneroComboId');
@@ -483,8 +491,21 @@ function adicionarPat(patEscolhida) {
 
 }
 function determinarPOP() {
+  var percentagem;
+  var valoresIguais;
+  var tabela = document.getElementById("POP");
+  tabela.style.display = "none";
 
+  $("#POP tr:gt(0)").remove();
+
+  var colm;
+  var preco;
+  var i=0;
+
+  var x = document.getElementById("ListaPOP");
   
+  if(patologiaEscolhida.length!=0)
+  {
   $.ajax({
     url: "/GetGrau/"+patologiaEscolhida[0],
     method: "get",
@@ -506,19 +527,7 @@ function determinarPOP() {
     , error: function () { alert(JSON.stringify('error')); }
 
   });
-  var percentagem;
-  var valoresIguais;
-  var tabela = document.getElementById("POP");
-  tabela.style.display = "none";
-
-  $("#POP tr:gt(0)").remove();
-
-  var colm;
-  var preco;
-  var i=0;
-
-  var x = document.getElementById("ListaPOP");
-  
+ 
   recur();
 
     function recur()
@@ -689,21 +698,14 @@ function determinarPOP() {
       }
     });
 }
+  }
 
 
 
   
 }
           
-function abrirMembros() {
-  $('.hover_bkgr_fricc').show();
 
-}
-
-function fecharPop() {
-  
-  $('.hover_bkgr_fricc').hide();
-}
 function preencherSintomasB() {
   $.ajax({
     url: "/GetSintomasB/" + patologiaEscolhida[contPat - 1],
@@ -846,8 +848,6 @@ function apagar(value)
   patologiaEscolhida.splice(patologiaEscolhida.indexOf(value),1);
   console.log(availableSintomas);
   console.log(availableTarefas);
-
-
   if(contPat==0)
   {
     preencherTarefas();
