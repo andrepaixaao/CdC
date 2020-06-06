@@ -1395,3 +1395,434 @@ box-shadow: -1px 1px 5px 9px rgba(0,0,0,0.75);
     vertical-align:bottom;
     margin-left:4px;
  }
+
+ .dadospat
+{
+    width:100%;
+        margin-top: 1%;
+        font-family: Arial;
+        font-size: 14px;
+        border-spacing: 0;
+        overflow-y: auto;
+
+}
+
+.dadospat th{
+    padding-top: 3px;
+    padding-bottom: 3px;
+     text-align: left;
+     color: white;
+     background-color: darkgrey;
+     border: 1px solid black;
+     text-align:center;
+     font-weight: normal;
+     height:25px;
+}
+
+     .dadospat td{
+
+     text-align: left;
+     color: black;
+     background-color: white;
+     border:1px solid black;
+     
+  
+ }
+
+ .dadospat select{
+       width:100%;
+       height:100%;
+       font-size:16px;
+       background-color:#87afd3;
+       font-weight: normal;
+       color:white;
+ }
+
+ .dadospat input
+ {
+     border:none;
+     width:98%;
+     height:100%;
+ }
+
+ .dadospat img
+ {
+    height: 24px;
+    vertical-align:bottom;
+    margin-left:4px;
+    text-align:center;
+ }
+
+
+#lixopop
+ {
+     text-align:center;
+ }
+
+ #poppais
+ {
+     width:10%;
+}
+
+
+.dadossint
+{
+    float:left;
+    width:50%;
+}
+
+
+.dadostar
+{
+    float:left;
+    width:50%;
+}
+
+.tabdadosint
+{
+    width:97%;
+        margin-top: 1%;
+        font-family: Arial;
+        font-size: 14px;
+        border-spacing: 0;
+        overflow-y: auto;
+
+}
+
+.tabdadosint th{
+    padding-top: 3px;
+    padding-bottom: 3px;
+     text-align: left;
+     color: white;
+     background-color: darkgrey;
+     border: 1px solid black;
+     text-align:center;
+     font-weight: normal;
+     height:25px;
+}
+.tabdadosint td{
+
+     text-align: left;
+     color: black;
+     background-color: white;
+     border:1px solid black;
+     
+  
+ }
+
+ .tabdadostar {
+     width:100%;
+         margin-top: 1%;
+         font-family: Arial;
+         font-size: 14px;
+         border-spacing: 0;
+         overflow-y: auto;
+ 
+ }
+ 
+ .tabdadostar th{
+     padding-top: 3px;
+     padding-bottom: 3px;
+      text-align: left;
+      color: white;
+      background-color: darkgrey;
+      border: 1px solid black;
+      text-align:center;
+      font-weight: normal;
+      height:25px;
+ }
+ 
+ .tabdadostar td{
+ 
+      text-align: left;
+      color: black;
+      background-color: white;
+      border:1px solid black;
+      
+   
+  }
+
+
+  .dadostarsint img
+  {
+     height: 24px;
+     vertical-align:bottom;
+     margin-left:8px;
+  }
+
+  .dadostarsint
+  {
+    font-family: "Arial";
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 2%;
+
+  }
+
+  .dadostarsint select
+  {
+    height:24px;
+    width:50%;
+    font-size:16px;
+    background-color:#87afd3;
+    margin-left:5.5%;
+    font-weight: normal;
+    color:white;
+  }
+
+
+  .dadostarsint #acao
+  {
+      width:10%;
+  }
+
+  .dadostarsint input
+  {
+      width:98%;
+      height:100%;
+      border:none;
+  }
+
+  .poprecomendacoes img
+  {
+     height: 24px;
+     vertical-align:bottom;
+     margin-left:8px;
+  }
+
+
+  .poprecomendacoes
+  {
+    font-family: "Arial";
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 15%;
+
+  }
+
+  .poprecomendacoes select
+  {
+    height:24px;
+    width:20%;
+    font-size:16px;
+    background-color:#87afd3;
+    margin-left:5.5%;
+    font-weight: normal;
+    color:white;
+  }
+  
+  .tabrec {
+    width:100%;
+        margin-top: 1%;
+        font-family: Arial;
+        font-size: 14px;
+        border-spacing: 0;
+        overflow-y: auto;
+
+}
+
+.tabrec th{
+    padding-top: 3px;
+    padding-bottom: 3px;
+     text-align: left;
+     color: white;
+     background-color: darkgrey;
+     border: 1px solid black;
+     text-align:center;
+     font-weight: normal;
+     height:25px;
+}
+
+.tabrec td{
+
+     text-align: left;
+     color: black;
+     background-color: white;
+     border:1px solid black;
+     
+ }
+
+ .tabrec input
+ {
+    width:98%;
+    height:100%;
+    border:none;
+ }
+
+ .tabrec select
+ {
+    width:100%;
+    height:100%;
+    font-size:16px;
+    background-color:#87afd3;
+    font-weight: normal;
+    color:white;
+    margin:0 0 0 0;
+ }
+
+ #RTipo
+ {
+     width:7%;
+ }
+
+
+ .poprodutos img
+ {
+    height: 24px;
+    vertical-align:bottom;
+    margin-left:8px;
+ }
+
+
+ .poprodutos
+ {
+   font-family: "Arial";
+   font-size: 20px;
+   font-weight: bold;
+   margin-top:1.5%;
+
+ }
+
+ .tabpro{
+    width:100%;
+        margin-top: 1%;
+        font-family: Arial;
+        font-size: 14px;
+        border-spacing: 0;
+        overflow-y: auto;
+
+}
+
+.tabpro th{
+    padding-top: 3px;
+    padding-bottom: 3px;
+     text-align: left;
+     color: white;
+     background-color: darkgrey;
+     border: 1px solid black;
+     text-align:center;
+     font-weight: normal;
+     height:25px;
+}
+
+.tabpro td{
+
+     text-align: left;
+     color: black;
+     background-color: white;
+     border:1px solid black;
+     
+ }
+
+ .tabpro input
+ {
+    width:98%;
+    height:100%;
+    border:none;
+ }
+ .tabpro select
+ {
+    width:100%;
+    height:100%;
+    font-size:16px;
+    background-color:#87afd3;
+    font-weight: normal;
+    color:white;
+    margin:0 0 0 0;
+ }
+
+
+ .totcolm
+ {
+     float:left;
+     width:50%;
+ }
+
+ .totcusto
+ {
+     float:left;
+     width:50%;
+ }
+
+.dadostot
+{
+    font-family: "Arial";
+    font-size: 20px;
+    font-weight: bold;
+    margin-top:1.5%;
+}
+
+.dadostot input{
+    background:grey;
+    width:30%;
+    font-size:19px;
+}
+
+.upload
+{
+    font-family: "Arial";
+    font-size: 20px;
+    font-weight: bold;
+    margin-top:5%;
+}
+
+.upload input
+{
+    margin-top:0.5%;
+    font-family: "Arial";
+    width:100%;
+    height:60px;
+    text-align:left;
+    vertical-align: top;
+    background-color:white;
+    border:2px solid #87afd3;
+
+}
+
+
+.listaficheiros 
+{
+    font-family: "Arial";
+    font-size: 20px;
+    font-weight: bold;
+    margin-top:1%;
+}
+
+.ficheiros
+{
+    border-top:2px solid #87afd3;
+    margin-top:0.5%;
+    font-size:16px;
+    font-weight:normal;
+}
+
+.ficheiros img 
+{
+    margin-left:4px;
+    margin-top:0.5%;
+    height:16px;
+    text-align:bottom;
+}
+
+
+.publicar
+{
+    float:right;
+}
+
+.publicar input[type="button"]
+{
+    font-family:"Arial"; 
+    font-size:14px;
+    background-color:#3C61A5;
+    color:white;
+}
+
+.publicar input[type="date"]
+{
+    font-family:"Arial"; 
+    font-size:14px;
+    background-color:#87afd3;
+    color:white;
+    border:none;
+}
