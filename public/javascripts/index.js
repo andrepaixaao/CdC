@@ -177,6 +177,8 @@ function verResultados() {
 }
 else
 {
+  document.getElementById("ListaPOP").style.border="2px solid red";
+
   alert("Nenhum procedimento selecionado");
 }
 
@@ -489,6 +491,7 @@ function adicionarPat(patEscolhida) {
   }
   document.getElementById("PatologiaId").selectedIndex = -1;
 
+  
 }
 function determinarPOP() {
   var percentagem;
@@ -918,6 +921,8 @@ function apagar(value)
   sintomasSetAutoComplete();
   atualizarSintomas();
   atualizarTarefas();
+  determinarPOP();
+
  
 
 }

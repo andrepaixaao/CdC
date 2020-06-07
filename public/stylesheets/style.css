@@ -926,32 +926,7 @@ optgroup {
 }
 
 
-  @media screen and (max-width: 600px) {
-    .navbar a
-    {
-        font-size:4px;
-        padding-top:55%;
-    padding-bottom:25%;
-    }
-
-    .Patologia select
-    {
-        width:40%
-    }
-    .navbar
-    {
-        width:8%;
-    }
-
-    .DP
-    {
-        height:3%;
-        font-size:12px;
-
-    }
-
-    
-  }
+  
 /* Popup box BEGIN */
 .hover_bkgr_fricc{
     display:none;
@@ -1856,3 +1831,111 @@ box-shadow: -1px 1px 5px 9px rgba(0,0,0,0.75);
 {
     width:10%;
 }
+
+#tab7
+{
+    text-align:center;
+}
+
+
+@media screen and (max-width: 650px) {
+    .navbar a
+    {
+        font-size:4px;
+        padding-top:55%;
+    padding-bottom:25%;
+    }
+
+    .Patologia select
+    {
+        width:40%
+    }
+    .navbar
+    {
+        width:8%;
+    }
+
+    .DP
+    {
+        height:3%;
+        font-size:12px;
+
+    }
+
+    .forn
+    {
+        width:40%;
+    }
+
+    .POP table #Scroll
+    {
+        min-width:40px;
+        width:20%
+    }
+
+    .referencia input[type='text']
+    {
+        width:35%;
+    }
+
+    #dados
+    {
+        overflow-x:auto;
+    }
+
+    .tabelaPatologia table
+    {
+        overflow-x:auto;
+    }
+
+    #Confirmar
+    {
+        width:40px;
+    }
+
+    .tabelaPatologia img
+    {
+        width:60%;
+    }
+
+    #dados input
+    {
+        width:20px;
+    }
+
+    #dados input[type="date"]
+    {
+        width:50px;
+    }
+
+    #DP
+    {
+        vertical-align:bottom;
+        margin-top:4.5%;
+    }
+
+    .dadosPop
+    {
+        width:100%;
+    }
+
+    .nomesPop
+    {
+        margin-left:0%;
+        width:100%;
+    }
+
+    .emailPop
+    {
+        width:100%;
+       
+    }
+    .contatoPop
+    {
+        margin-left:0%;
+        width:100%;
+    }
+  
+    
+    
+  }
