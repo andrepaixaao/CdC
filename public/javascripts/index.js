@@ -494,6 +494,8 @@ function adicionarPat(patEscolhida) {
   
 }
 function determinarPOP() {
+  document.getElementById("determinarpop").disabled = true;
+
   var percentagem;
   var valoresIguais;
   var tabela = document.getElementById("POP");
@@ -680,6 +682,7 @@ function determinarPOP() {
             else
             {
               tabela.style.display = "block";
+              document.getElementById("determinarpop").disabled = false;
             }
            }
        
@@ -909,6 +912,7 @@ function apagar(value)
 
       }
       totalSintomas=availableSintomas;
+      
 
       
     }
@@ -917,11 +921,28 @@ function apagar(value)
 
   });
 }
+
+atualizarSintomas();
+atualizarTarefas();
   tarefasSetAutoComplete();
   sintomasSetAutoComplete();
-  atualizarSintomas();
-  atualizarTarefas();
+  if(contPat==0)
+  {
+    apagarTudoSintomas();
+
+    apagarTudoTarefas();
+
+  }
+
+ 
+
+ 
+
+  if($('#POP').is(':visible'))
+{
   determinarPOP();
+}
+ 
 
  
 
@@ -983,12 +1004,27 @@ function atualizarSintomas()
     }
     if(tem==0)
   {
+    console.log(divSintomas[i]);
     removerIntroduzido(divSintomas[i]);
     document.getElementById(divSintomas[i]).style.display='none';    
 
   }
   
   }
+}
+
+
+function apagarTudoSintomas()
+{
+  $("#areaSintomas").find("chips").hide(); 
+}
+
+function apagarTudoTarefas()
+{
+  
+  $("#areaTarefas").find("chips").hide(); 
+
+  
 }
 
 function abrirMembros() {
