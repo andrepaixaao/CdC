@@ -14,13 +14,11 @@ $(document).ready(function () {
  })
 
   $('table').on('click', '#apagartextopre', function(e){
-    console.log("oi");
    $(this).closest("tr").find('#sintomapretab').val("");
  })
 
  
  $('table').on('click', '#apagartextosint', function(e){
-  console.log("oi");
  $(this).closest("tr").find('#sintomatab').val("");
 })
 
