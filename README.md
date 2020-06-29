@@ -9,29 +9,5 @@ Inicialmente, o utilizador poderá escolher um sintoma predominante predefinido 
  
  
 ## Cenário Secundário :  
--  A aplicação terá fornecedores dos produtos que irão ser recomendados e poderá obter o trajeto para o estabelecimento do fornecedor. 
-- O especialista/avaliador poderá inserir novos dados(Sintomas, Listas de Procedimentos Operacionais Padrão, Tarefas) .
-- O utilizador poderá imprimir ou guardar como pdf, as recomendações ou produtos de apoios que escolheu. 
+-  A aplicação terá fornecedores dos produtos que irão ser recomendados
  
-## Calendário: 
-- Fase 1 (Meia semana)
-Elaboração da proposta  
-- Fase 2 (Meia semana) 
-Criação dos mockups 
-- Fase 3 (1 semana)  
-Criação da base de dados e inserção de dados 
-- Fase 4 (1 semana) 
-Criação dos interfaces básicos 
-- Fase 5 (2 semana) o Criação de Funcionalidades Básicas 
-Listagem de Sintomas 
-Listagem de palavras chaves de sintomas 
-Listagem de palavras chaves tarefas
-- Fase 6 (2 Semana) 
-Obter a lista de Procedimentos Operacionais Padrão consoante os dados inseridos e de seguida listar todos os produtos/recomendações associados. 
-- Fase 7 (2 Semana) 
-Obter a localização de um fornecedor após a escolha dos produtos. 
-- Fase 8(2 Semana) 
-O Especialista poderá introduzir novos sintomas/tarefas na aplicação. 
-- Fase 9 (2 Semana) 
-Funcionalidade de imprimir / guardar como pdf os produtos / recomendações 
-escolhidas
